@@ -53,7 +53,7 @@
             <tr>
                 <th class="descriptor">Str</th>
                 <th class="field">
-                    <select id="str">
+                    <select id="str" onchange="getStrValue();">
                         <option value="1">1</option>
                         <option value="2">2</option>
                         <option value="3">3</option>
@@ -68,7 +68,7 @@
                 </th>
                 <th class="descriptor">Agi</th>
                 <th class="field">
-                    <select id="agi">
+                    <select id="agi" onchange="getAgiValue();">
                         <option value="1">1</option>
                         <option value="2">2</option>
                         <option value="3">3</option>
@@ -83,7 +83,7 @@
                 </th>
                 <th class="descriptor">Vit</th>
                 <th class="field">
-                    <select id="vit">
+                    <select id="vit" onchange="getVitValue();">
                         <option value="1">1</option>
                         <option value="2">2</option>
                         <option value="3">3</option>
@@ -100,7 +100,7 @@
             <tr>
                 <th class="descriptor">Int</th>
                 <th class="field">
-                    <select id="int">
+                    <select id="int" onchange="getIntValue();">
                         <option value="1">1</option>
                         <option value="2">2</option>
                         <option value="3">3</option>
@@ -115,7 +115,7 @@
                 </th>
                 <th class="descriptor">Dex</th>
                 <th class="field">
-                    <select id="dex">
+                    <select id="dex" onchange="getDexValue();">
                         <option value="1">1</option>
                         <option value="2">2</option>
                         <option value="3">3</option>
@@ -130,7 +130,7 @@
                 </th>
                 <th class="descriptor">Luk</th>
                 <th class="field">
-                    <select id="luk">
+                    <select id="luk" onchange="getLukValue();">
                         <option value="1">1</option>
                         <option value="2">2</option>
                         <option value="3">3</option>
@@ -157,5 +157,13 @@
                 <th class="field"><input type="checkbox"></th>
             </tr>
         </table>
+        <script>
+            getStrValue();
+            getAgiValue();
+            getVitValue();
+            getIntValue();
+            getDexValue();
+            getLukValue();
+        </script>
     </body>
 </html>
