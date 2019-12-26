@@ -1,0 +1,22 @@
+body {
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+}
+
+table {
+    border-collapse: collapse;
+}
+
+td, th {
+    border: 1px solid black;
+    font-weight: normal;
+    padding: 3px;
+    text-align: left;
+}
+
+th.descriptor {
+    width: 70px;
+}
+
+th.field {
+    width: 100px;
+}

@@ -1,0 +1,1 @@
+var stat_points = 0;

@@ -2,12 +2,14 @@
 <html lang="en-US">
     <head>
         <title>NovaRO Stat Calculator</title>
+        <link rel="stylesheet" href="styles.css">
+        <script type="text/javascript" src="script.js"></script>
     </head>
     <body>
         <table>
             <tr>
-                <th>Base</th>
-                <th>
+                <th class="descriptor">Base</th>
+                <th class="field">
                     <select id="base">
                         <option value="1">1</option>
                         <option value="2">2</option>
@@ -21,8 +23,8 @@
                         <option value="10">10</option>
                     </select>
                 </th>
-                <th>Job</th>
-                <th>
+                <th class="descriptor">Job</th>
+                <th class="field">
                     <select id="job">
                         <option value="1">1</option>
                         <option value="2">2</option>
@@ -36,8 +38,8 @@
                         <option value="10">10</option>
                     </select>
                 </th>
-                <th>Class</th>
-                <th>
+                <th class="descriptor">Class</th>
+                <th class="field">
                     <select name="Class" size="1">
                         <option value="Swd">Swordsman</option>
                         <option value="Mag">Mage</option>
@@ -49,8 +51,8 @@
                 </th>
             </tr>
             <tr>
-                <th>Str</th>
-                <th>
+                <th class="descriptor">Str</th>
+                <th class="field">
                     <select id="str">
                         <option value="1">1</option>
                         <option value="2">2</option>
@@ -64,8 +66,8 @@
                         <option value="10">10</option>
                     </select>
                 </th>
-                <th>Agi</th>
-                <th>
+                <th class="descriptor">Agi</th>
+                <th class="field">
                     <select id="agi">
                         <option value="1">1</option>
                         <option value="2">2</option>
@@ -79,8 +81,8 @@
                         <option value="10">10</option>
                     </select>
                 </th>
-                <th>Vit</th>
-                <th>
+                <th class="descriptor">Vit</th>
+                <th class="field">
                     <select id="vit">
                         <option value="1">1</option>
                         <option value="2">2</option>
@@ -96,8 +98,8 @@
                 </th>
             </tr>
             <tr>
-                <th>Int</th>
-                <th>
+                <th class="descriptor">Int</th>
+                <th class="field">
                     <select id="int">
                         <option value="1">1</option>
                         <option value="2">2</option>
@@ -111,8 +113,8 @@
                         <option value="10">10</option>
                     </select>
                 </th>
-                <th>Dex</th>
-                <th>
+                <th class="descriptor">Dex</th>
+                <th class="field">
                     <select id="dex">
                         <option value="1">1</option>
                         <option value="2">2</option>
@@ -126,8 +128,8 @@
                         <option value="10">10</option>
                     </select>
                 </th>
-                <th>Luk</th>
-                <th>
+                <th class="descriptor">Luk</th>
+                <th class="field">
                     <select id="luk">
                         <option value="1">1</option>
                         <option value="2">2</option>
@@ -141,6 +143,18 @@
                         <option value="10">10</option>
                     </select>
                 </th>
+            </tr>
+            <tr>
+                <th class="descriptor">Points left</th>
+                <th class="field">
+                    <script>
+                        document.write(stat_points);
+                    </script>
+                </th>
+                <th class="descriptor">Adopted</th>
+                <th class="field"><input type="checkbox"></th>
+                <th class="descriptor">Trans</th>
+                <th class="field"><input type="checkbox"></th>
             </tr>
         </table>
     </body>
