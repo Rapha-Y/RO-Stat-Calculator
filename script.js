@@ -1,10 +1,22 @@
-var adopted = 0;
-var classValue = 0;
-var max_base_level = 99;
-var max_stat_points = 99;
-var min_base_level = 1;
+var max_base_level;
+var max_job_level;
+var max_stat_points;
+var min_base_level;
+var stat_points_floor;
+
+var base;
+var job;
+var classValue;
+
+var str;
+var agi;
+var vit;
+var int;
+var dex;
+var luk;
+
 var stat_points = 0;
-var stat_points_floor = 48;
+var adopted = 0;
 var reborn = 0;
 
 function getClassValue(){
@@ -134,99 +146,91 @@ function getClassValue(){
     createDropdowns();
 }
 
-function getStrValue(){
-    var selectedValue = document.getElementById("str").value;
-    console.log(selectedValue);
+function getNumericValues(){
+    base = document.getElementById("base").value;
+    job = document.getElementById("job").value;
+
+    str = document.getElementById("str").value;
+    agi = document.getElementById("agi").value;
+    vit = document.getElementById("vit").value;
+    int = document.getElementById("int").value;
+    dex = document.getElementById("dex").value;
+    luk = document.getElementById("luk").value;
 }
 
-function getAgiValue(){
-    var selectedValue = document.getElementById("agi").value;
-    console.log(selectedValue);
-}
+function clearDropdowns(){
+    var select;
 
-function getVitValue(){
-    var selectedValue = document.getElementById("vit").value;
-    console.log(selectedValue);
-}
-
-function getIntValue(){
-    var selectedValue = document.getElementById("int").value;
-    console.log(selectedValue);
-}
-
-function getDexValue(){
-    var selectedValue = document.getElementById("dex").value;
-    console.log(selectedValue);
-}
-
-function getLukValue(){
-    var selectedValue = document.getElementById("luk").value;
-    console.log(selectedValue);
-}
-
-function createBaseDropdown(){
-    var select = document.getElementById("base");
-    for(var i=1;i<=max_stat_points;i++){
-        select.options[select.options.length] = new Option(i, i);
+    select = document.getElementById("base");
+    for(var i=select.options.length-1;i>=0;i--){
+        select.remove(i);
     }
-}
-
-function createJobDropdown(){
-    var select = document.getElementById("job");
-    for(var i=1;i<=max_stat_points;i++){
-        select.options[select.options.length] = new Option(i, i);
+    select = document.getElementById("job");
+    for(var i=select.options.length-1;i>=0;i--){
+        select.remove(i);
     }
-}
 
-function createStrDropdown(){
-    var select = document.getElementById("str");
-    for(var i=1;i<=max_stat_points;i++){
-        select.options[select.options.length] = new Option(i, i);
+    select = document.getElementById("str");
+    for(var i=select.options.length-1;i>=0;i--){
+        select.remove(i);
     }
-}
-
-function createAgiDropdown(){
-    var select = document.getElementById("agi");
-    for(var i=1;i<=max_stat_points;i++){
-        select.options[select.options.length] = new Option(i, i);
+    select = document.getElementById("agi");
+    for(var i=select.options.length-1;i>=0;i--){
+        select.remove(i);
     }
-}
-
-function createVitDropdown(){
-    var select = document.getElementById("vit");
-    for(var i=1;i<=max_stat_points;i++){
-        select.options[select.options.length] = new Option(i, i);
+    select = document.getElementById("vit");
+    for(var i=select.options.length-1;i>=0;i--){
+        select.remove(i);
     }
-}
-
-function createIntDropdown(){
-    var select = document.getElementById("int");
-    for(var i=1;i<=max_stat_points;i++){
-        select.options[select.options.length] = new Option(i, i);
+    select = document.getElementById("int");
+    for(var i=select.options.length-1;i>=0;i--){
+        select.remove(i);
     }
-}
-
-function createDexDropdown(){
-    var select = document.getElementById("dex");
-    for(var i=1;i<=max_stat_points;i++){
-        select.options[select.options.length] = new Option(i, i);
+    select = document.getElementById("dex");
+    for(var i=select.options.length-1;i>=0;i--){
+        select.remove(i);
     }
-}
-
-function createLukDropdown(){
-    var select = document.getElementById("luk");
-    for(var i=1;i<=max_stat_points;i++){
-        select.options[select.options.length] = new Option(i, i);
+    select = document.getElementById("luk");
+    for(var i=select.options.length-1;i>=0;i--){
+        select.remove(i);
     }
 }
 
 function createDropdowns(){
-    createBaseDropdown();
-    createJobDropdown();
-    createStrDropdown();
-    createAgiDropdown();
-    createVitDropdown();
-    createIntDropdown();
-    createDexDropdown();
-    createLukDropdown();
+    clearDropdowns();
+    var select;
+    
+    select = document.getElementById("base");
+    for(var i=min_base_level;i<=max_base_level;i++){
+        select.options[select.options.length] = new Option(i, i);
+    }
+    select = document.getElementById("job");
+    for(var i=1;i<=max_job_level;i++){
+        select.options[select.options.length] = new Option(i, i);
+    }
+
+    select = document.getElementById("str");
+    for(var i=1;i<=max_stat_points;i++){
+        select.options[select.options.length] = new Option(i, i);
+    }
+    select = document.getElementById("agi");
+    for(var i=1;i<=max_stat_points;i++){
+        select.options[select.options.length] = new Option(i, i);
+    }
+    select = document.getElementById("vit");
+    for(var i=1;i<=max_stat_points;i++){
+        select.options[select.options.length] = new Option(i, i);
+    }
+    select = document.getElementById("int");
+    for(var i=1;i<=max_stat_points;i++){
+        select.options[select.options.length] = new Option(i, i);
+    }
+    select = document.getElementById("dex");
+    for(var i=1;i<=max_stat_points;i++){
+        select.options[select.options.length] = new Option(i, i);
+    }
+    select = document.getElementById("luk");
+    for(var i=1;i<=max_stat_points;i++){
+        select.options[select.options.length] = new Option(i, i);
+    }
 }

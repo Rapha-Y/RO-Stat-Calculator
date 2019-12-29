@@ -12,13 +12,13 @@
                     Base
                 </th>
                 <th class="field">
-                    <select id="base"></select>
+                    <select id="base" onchange="getNumericValues();"></select>
                 </th>
                 <th class="descriptor">
                     Job
                 </th>
                 <th class="field">
-                    <select id="job"></select>
+                    <select id="job" onchange="getNumericValues();"></select>
                 </th>
                 <th class="descriptor">
                     Class
@@ -112,19 +112,19 @@
                     Str
                 </th>
                 <th class="field">
-                    <select id="str" onchange="getStrValue();"></select>
+                    <select id="str" onchange="getNumericValues();"></select>
                 </th>
                 <th class="descriptor">
                     Agi
                 </th>
                 <th class="field">
-                    <select id="agi" onchange="getAgiValue();"></select>
+                    <select id="agi" onchange="getNumericValues();"></select>
                 </th>
                 <th class="descriptor">
                     Vit
                 </th>
                 <th class="field">
-                    <select id="vit" onchange="getVitValue();"></select>
+                    <select id="vit" onchange="getNumericValues();"></select>
                 </th>
             </tr>
             <tr>
@@ -132,19 +132,19 @@
                     Int
                 </th>
                 <th class="field">
-                    <select id="int" onchange="getIntValue();"></select>
+                    <select id="int" onchange="getNumericValues();"></select>
                 </th>
                 <th class="descriptor">
                     Dex
                 </th>
                 <th class="field">
-                    <select id="dex" onchange="getDexValue();"></select>
+                    <select id="dex" onchange="getNumericValues();"></select>
                 </th>
                 <th class="descriptor">
                     Luk
                 </th>
                 <th class="field">
-                    <select id="luk" onchange="getLukValue();"></select>
+                    <select id="luk" onchange="getNumericValues();"></select>
                 </th>
             </tr>
             <tr>
@@ -163,12 +163,7 @@
         <script>
             createDropdowns();
             getClassValue();
-            getStrValue();
-            getAgiValue();
-            getVitValue();
-            getIntValue();
-            getDexValue();
-            getLukValue();
+            getNumericValues();
         </script>
     </body>
 </html>
