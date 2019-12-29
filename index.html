@@ -24,19 +24,7 @@
                     Class
                 </th>
                 <th class="field">
-                    <select name="Class" size="1">
-                        <!-- 
-                            Value guide:
-                            0 - Min base level: 1, Max base level: 99, Max job level: 10, Can be reborn 
-                            1 to 6 - Min base level: 1, Max base level: 99, Max job level: 50, Can be reborn
-                            7 to 22 - Min base level: 1, Max base level: 99, Max job level: 50, Can't be reborn
-                            23 to 24 - Min base level: 1, Max base level: 99, Max job level: 70, Can't be reborn
-                            25 - Min base level: 1, Max base level: 99, Max job level: 99, Can't be reborn
-                            26 to 38 - Min base level: 1, Max base level: 99, Max job level: 70, Is reborn
-                            39 - Min base level: 1, Max base level: 185, Max job level: 55, Can't be reborn
-                            40 to 52 - Min base level: 99, Max base level: 185, Max job level: 65, Can be reborn
-                            53 to 58 - Min base level: 99, Max base level: 185, Max job level: 65, Can't be reborn
-                        -->
+                    <select id="class" onchange="getClassValue();" size="1">
                         <!-- Base Job -->
                         <option disabled>Base Job</option>
                         <option value="0">Novice</option>
@@ -65,56 +53,56 @@
                         <option value="19">Monk</option>
                         <!-- Second Job (Trans) -->
                         <option disabled>Second Job (Trans)</option>
-                        <option value="26">Lord Knight</option>
-                        <option value="27">High Wizard</option>
-                        <option value="28">Sniper</option>
-                        <option value="29">Mastersmith</option>
-                        <option value="30">Assassin Cross</option>
-                        <option value="31">High Priest</option>
-                        <option value="32">Paladin</option>
-                        <option value="33">Professor</option>
-                        <option value="34">Minstrel</option>
-                        <option value="35">Gypsy</option>
-                        <option value="36">Creator</option>
-                        <option value="37">Stalker</option>
-                        <option value="38">Champion</option>
+                        <option value="20">Lord Knight</option>
+                        <option value="21">High Wizard</option>
+                        <option value="22">Sniper</option>
+                        <option value="23">Mastersmith</option>
+                        <option value="24">Assassin Cross</option>
+                        <option value="25">High Priest</option>
+                        <option value="26">Paladin</option>
+                        <option value="27">Professor</option>
+                        <option value="28">Minstrel</option>
+                        <option value="29">Gypsy</option>
+                        <option value="30">Creator</option>
+                        <option value="31">Stalker</option>
+                        <option value="32">Champion</option>
                         <!-- Third Job -->
                         <option disabled>Third Job</option>
-                        <option value="40">Rune Knight</option>
-                        <option value="41">Warlock</option>
-                        <option value="42">Ranger</option>
-                        <option value="43">Mechanic</option>
-                        <option value="44">Guillotine Cross</option>
-                        <option value="45">Arch Bishop</option>
-                        <option value="46">Royal Guard</option>
-                        <option value="47">Sorcerer</option>
-                        <option value="48">Maestro</option>
-                        <option value="49">Wanderer</option>
-                        <option value="50">Geneticist</option>
-                        <option value="51">Shadow Chaser</option>
-                        <option value="52">Sura</option>
+                        <option value="33">Rune Knight</option>
+                        <option value="34">Warlock</option>
+                        <option value="35">Ranger</option>
+                        <option value="36">Mechanic</option>
+                        <option value="37">Guillotine Cross</option>
+                        <option value="38">Arch Bishop</option>
+                        <option value="39">Royal Guard</option>
+                        <option value="40">Sorcerer</option>
+                        <option value="41">Maestro</option>
+                        <option value="42">Wanderer</option>
+                        <option value="43">Geneticist</option>
+                        <option value="44">Shadow Chaser</option>
+                        <option value="45">Sura</option>
                         <!-- Expanded Base Job -->
                         <option disabled>Expanded Base Job</option>
-                        <option value="39">Summoner</option>
+                        <option value="46">Summoner</option>
                         <!-- Expanded First Job -->
                         <option disabled>Expanded First Job</option>
-                        <option value="20">Taekwon Kid</option>
-                        <option value="23">Ninja</option>
-                        <option value="24">Gunslinger</option>
+                        <option value="47">Taekwon Kid</option>
+                        <option value="48">Ninja</option>
+                        <option value="49">Gunslinger</option>
                         <!-- Expanded Second Job -->
                         <option disabled>Expanded Second Job</option>
-                        <option value="21">Star Gladiator</option>
-                        <option value="22">Soul Linker</option>
+                        <option value="50">Star Gladiator</option>
+                        <option value="51">Soul Linker</option>
                         <!-- Expanded Third Job -->
                         <option disabled>Expanded Third Job</option>
-                        <option value="53">Star Emperor</option>
-                        <option value="54">Soul Reaper</option>
-                        <option value="55">Kagerou</option>
-                        <option value="56">Oborou</option>
-                        <option value="57">Rebel</option>
+                        <option value="52">Star Emperor</option>
+                        <option value="53">Soul Reaper</option>
+                        <option value="54">Kagerou</option>
+                        <option value="55">Oborou</option>
+                        <option value="56">Rebel</option>
                         <!-- Super Novice Branch -->
                         <option disabled>Super Novice</option>
-                        <option value="25">Super Novice</option>
+                        <option value="57">Super Novice</option>
                         <option value="58">Expanded Super Novice</option>
                     </select>
                 </th>
@@ -174,6 +162,7 @@
         </table>
         <script>
             createDropdowns();
+            getClassValue();
             getStrValue();
             getAgiValue();
             getVitValue();
