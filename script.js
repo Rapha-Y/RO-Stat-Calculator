@@ -21,6 +21,8 @@ var reborn = false;
 
 function getClassValue(){
     classValue = document.getElementById("class").value;
+    var adoptedCheck = document.getElementById("adopted");
+    var rebornCheck = document.getElementById("reborn");
     //base job
     if(classValue == 0){
         min_base_level = 1;
@@ -37,6 +39,9 @@ function getClassValue(){
             stat_points_floor = 100;
             max_stat_points = 99;
         }
+
+        showAdoptedCheckbox();
+        showRebornCheckbox();
     //first job
     }else if(classValue >= 1 && classValue <= 6){
         min_base_level = 1;
@@ -53,6 +58,9 @@ function getClassValue(){
             stat_points_floor = 100;
             max_stat_points = 99;
         }
+
+        showAdoptedCheckbox();
+        showRebornCheckbox();
     //second job
     }else if(classValue >= 7 && classValue <= 19){
         min_base_level = 1;
@@ -64,6 +72,11 @@ function getClassValue(){
         }else{
             max_stat_points = 80;
         }
+
+        showAdoptedCheckbox();
+        reborn = false;
+        rebornCheck.checked = false;
+        hideRebornCheckbox();
     //second job (trans)
     }else if(classValue >= 20 && classValue <= 32){
         min_base_level = 1;
@@ -71,6 +84,13 @@ function getClassValue(){
         max_job_level = 70;
         stat_points_floor = 100;
         max_stat_points = 99;
+
+        adopted = false;
+        adoptedCheck.checked = false;
+        hideAdoptedCheckbox();
+        reborn = false;
+        rebornCheck.checked = false;
+        hideRebornCheckbox();
     //third job
     }else if(classValue >= 33 && classValue <= 45){
         min_base_level = 99;
@@ -87,6 +107,9 @@ function getClassValue(){
             stat_points_floor = 100;
             max_stat_points = 130;
         }
+
+        showAdoptedCheckbox();
+        showRebornCheckbox();
     //expanded base job
     }else if(classValue == 46){
         min_base_level = 1;
@@ -98,6 +121,11 @@ function getClassValue(){
         }else{
             max_stat_points = 117;
         }
+
+        showAdoptedCheckbox();
+        reborn = false;
+        rebornCheck.checked = false;
+        hideRebornCheckbox();
     //expanded first and second job
     }else if(classValue >= 47 && classValue <= 51){
         min_base_level = 1;
@@ -109,6 +137,11 @@ function getClassValue(){
         }else{
             max_stat_points = 80;
         }
+
+        showAdoptedCheckbox();
+        reborn = false;
+        rebornCheck.checked = false;
+        hideRebornCheckbox();
     //expanded third job
     }else if(classValue >= 52 && classValue <= 56){
         min_base_level = 99;
@@ -120,6 +153,11 @@ function getClassValue(){
         }else{
             max_stat_points = 117;
         }
+
+        showAdoptedCheckbox();
+        reborn = false;
+        rebornCheck.checked = false;
+        hideRebornCheckbox();
     //super novice
     }else if(classValue == 57){
         min_base_level = 1;
@@ -131,6 +169,11 @@ function getClassValue(){
         }else{
             max_stat_points = 80;
         }
+
+        showAdoptedCheckbox();
+        reborn = false;
+        rebornCheck.checked = false;
+        hideRebornCheckbox();
     //expanded super novice
     }else if(classValue == 58){
         min_base_level = 99;
@@ -142,6 +185,11 @@ function getClassValue(){
         }else{
             max_stat_points = 117;
         }
+
+        showAdoptedCheckbox();
+        reborn = false;
+        rebornCheck.checked = false;
+        hideRebornCheckbox();
     }
     createDropdowns();
 }
@@ -159,14 +207,19 @@ function getNumericValues(){
 }
 
 function adoptedCheck(){
+    var classValue = document.getElementById("class").value;
     var adoptedCheck = document.getElementById("adopted");
     var rebornCheck = document.getElementById("reborn");
     if(adoptedCheck.checked == true){
         adopted = true;
         reborn = false;
         rebornCheck.checked = false;
+        hideRebornCheckbox();
     }else{
         adopted = false;
+        if((classValue >= 0 && classValue <= 6) || (classValue >= 33 && classValue <= 45)){
+            showRebornCheckbox();
+        }
     }
 }
 
@@ -177,9 +230,27 @@ function rebornCheck(){
         reborn = true;
         adopted = false;
         adoptedCheck.checked = false;
+        hideAdoptedCheckbox();
     }else{
         reborn = false;
+        showAdoptedCheckbox();
     }
+}
+
+function hideAdoptedCheckbox(){
+    document.getElementById("adopted").style.display = "none";
+}
+
+function showAdoptedCheckbox(){
+    document.getElementById("adopted").style.display = "block";
+}
+
+function hideRebornCheckbox(){
+    document.getElementById("reborn").style.display = "none";
+}
+
+function showRebornCheckbox(){
+    document.getElementById("reborn").style.display = "block";
 }
 
 function clearDropdowns(){
