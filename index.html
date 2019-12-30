@@ -148,16 +148,26 @@
                 </th>
             </tr>
             <tr>
-                <th class="descriptor">Points left</th>
+                <th class="descriptor">
+                    Points left
+                </th>
                 <th class="field">
                     <script>
                         document.write(stat_points);
                     </script>
                 </th>
-                <th class="descriptor">Adopted</th>
-                <th class="field"><input type="checkbox"></th>
-                <th class="descriptor">Reborn</th>
-                <th class="field"><input type="checkbox"></th>
+                <th class="descriptor">
+                    Adopted
+                </th>
+                <th class="field">
+                    <input id="adopted" onchange="adoptedCheck();" type="checkbox">
+                </th>
+                <th class="descriptor">
+                    Reborn
+                </th>
+                <th class="field">
+                    <input id="reborn" onchange="rebornCheck();" type="checkbox">
+                </th>
             </tr>
         </table>
         <script>
@@ -165,5 +175,6 @@
             getClassValue();
             getNumericValues();
         </script>
+
     </body>
 </html>

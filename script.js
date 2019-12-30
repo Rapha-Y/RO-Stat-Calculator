@@ -16,8 +16,8 @@ var dex;
 var luk;
 
 var stat_points = 0;
-var adopted = 0;
-var reborn = 0;
+var adopted = false;
+var reborn = false;
 
 function getClassValue(){
     classValue = document.getElementById("class").value;
@@ -26,9 +26,9 @@ function getClassValue(){
         min_base_level = 1;
         max_base_level = 99;
         max_job_level = 10;
-        if(reborn == 0){
+        if(reborn == false){
             stat_points_floor = 48;
-            if(adopted == 0){
+            if(adopted == false){
                 max_stat_points = 99;
             }else{
                 max_stat_points = 80;
@@ -42,9 +42,9 @@ function getClassValue(){
         min_base_level = 1;
         max_base_level = 99;
         max_job_level = 50;
-        if(reborn == 0){
+        if(reborn == false){
             stat_points_floor = 48;
-            if(adopted == 0){
+            if(adopted == false){
                 max_stat_points = 99;
             }else{
                 max_stat_points = 80;
@@ -59,7 +59,7 @@ function getClassValue(){
         max_base_level = 99;
         max_job_level = 50;
         stat_points_floor = 48;
-        if(adopted == 0){
+        if(adopted == false){
             max_stat_points = 99;
         }else{
             max_stat_points = 80;
@@ -76,9 +76,9 @@ function getClassValue(){
         min_base_level = 99;
         max_base_level = 185;
         max_job_level = 65;
-        if(reborn == 0){
+        if(reborn == false){
             stat_points_floor = 48;
-            if(adopted == 0){
+            if(adopted == false){
                 max_stat_points = 130;
             }else{
                 max_stat_points = 117;
@@ -93,7 +93,7 @@ function getClassValue(){
         max_base_level = 185;
         max_job_level = 55;
         stat_points_floor = 48;
-        if(adopted == 0){
+        if(adopted == false){
             max_stat_points = 125;
         }else{
             max_stat_points = 117;
@@ -104,7 +104,7 @@ function getClassValue(){
         max_base_level = 99;
         max_job_level = 50;
         stat_points_floor = 48;
-        if(adopted == 0){
+        if(adopted == false){
             max_stat_points = 99;
         }else{
             max_stat_points = 80;
@@ -115,7 +115,7 @@ function getClassValue(){
         max_base_level = 125;
         max_job_level = 65;
         stat_points_floor = 48;
-        if(adopted == 0){
+        if(adopted == false){
             max_stat_points = 125;
         }else{
             max_stat_points = 117;
@@ -126,7 +126,7 @@ function getClassValue(){
         max_base_level = 99;
         max_job_level = 99;
         stat_points_floor = 48;
-        if(adopted == 0){
+        if(adopted == false){
             max_stat_points = 99;
         }else{
             max_stat_points = 80;
@@ -137,7 +137,7 @@ function getClassValue(){
         max_base_level = 185;
         max_job_level = 65;
         stat_points_floor = 48;
-        if(adopted == 0){
+        if(adopted == false){
             max_stat_points = 130;
         }else{
             max_stat_points = 117;
@@ -156,6 +156,30 @@ function getNumericValues(){
     int = document.getElementById("int").value;
     dex = document.getElementById("dex").value;
     luk = document.getElementById("luk").value;
+}
+
+function adoptedCheck(){
+    var adoptedCheck = document.getElementById("adopted");
+    var rebornCheck = document.getElementById("reborn");
+    if(adoptedCheck.checked == true){
+        adopted = true;
+        reborn = false;
+        rebornCheck.checked = false;
+    }else{
+        adopted = false;
+    }
+}
+
+function rebornCheck(){
+    var adoptedCheck = document.getElementById("adopted");
+    var rebornCheck = document.getElementById("reborn");
+    if(rebornCheck.checked == true){
+        reborn = true;
+        adopted = false;
+        adoptedCheck.checked = false;
+    }else{
+        reborn = false;
+    }
 }
 
 function clearDropdowns(){
@@ -234,3 +258,4 @@ function createDropdowns(){
         select.options[select.options.length] = new Option(i, i);
     }
 }
+
