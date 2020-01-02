@@ -1,30 +1,70 @@
-var max_base_level;
-var max_job_level;
-var max_stat_points;
-var min_base_level;
-var stat_points_floor;
+var max_base_level = 99;
+var max_job_level = 10;
+var max_stat_points = 99;
+var min_base_level = 1;
+var stat_points_floor = 48;
 
-var base;
-var job;
+var base = 1;
+var job = 1;
 var classValue;
 
-var str;
-var agi;
-var vit;
-var int;
-var dex;
-var luk;
+var str = 1;
+var agi = 1;
+var vit = 1;
+var int = 1;
+var dex = 1;
+var luk = 1;
 
 var stat_points = 0;
 var adopted = false;
 var reborn = false;
 
+//calculate stat gain on level up
+function calcStatGain(level){
+    if(level > 0 && level == 1){
+        return 0;
+    }else if(level <= 100){
+        return 3 + Math.floor((level-1)/5);
+    }else if(level <= 150){
+        return 23 + Math.floor((level-101)/10);
+    }else if(level <= 175){
+        return 28 + Math.floor((level-151)/7);
+    }else if(level == 176){
+        return 17;
+    }else if(level <= 185){
+        return 30 + Math.floor((level-175)/5);
+    }
+}
+
+//calculate stat point number
+function calcStatPoints(){
+    stat_points = stat_points_floor;
+    var aux_level = base;
+    while(aux_level > 0){
+        stat_points = stat_points + calcStatGain(aux_level);
+        aux_level--;
+    }
+    document.getElementById("stat_points").innerHTML = stat_points;
+}
+
+//update variables based on class value
 function getClassValue(){
     classValue = document.getElementById("class").value;
     var adoptedCheck = document.getElementById("adopted");
     var rebornCheck = document.getElementById("reborn");
+    
+    str = 1;
+    agi = 1;
+    vit = 1;
+    int = 1;
+    dex = 1;
+    luk = 1;
+
     //base job
     if(classValue == 0){
+        base = 1;
+        job = 1;
+
         min_base_level = 1;
         max_base_level = 99;
         max_job_level = 10;
@@ -44,6 +84,9 @@ function getClassValue(){
         showRebornCheckbox();
     //first job
     }else if(classValue >= 1 && classValue <= 6){
+        base = 1;
+        job = 1;
+        
         min_base_level = 1;
         max_base_level = 99;
         max_job_level = 50;
@@ -63,6 +106,9 @@ function getClassValue(){
         showRebornCheckbox();
     //second job
     }else if(classValue >= 7 && classValue <= 19){
+        base = 1;
+        job = 1;
+        
         min_base_level = 1;
         max_base_level = 99;
         max_job_level = 50;
@@ -79,6 +125,9 @@ function getClassValue(){
         hideRebornCheckbox();
     //second job (trans)
     }else if(classValue >= 20 && classValue <= 32){
+        base = 1;
+        job = 1;
+        
         min_base_level = 1;
         max_base_level = 99;
         max_job_level = 70;
@@ -93,6 +142,9 @@ function getClassValue(){
         hideRebornCheckbox();
     //third job
     }else if(classValue >= 33 && classValue <= 45){
+        base = 99;
+        job = 1;
+        
         min_base_level = 99;
         max_base_level = 185;
         max_job_level = 65;
@@ -112,6 +164,9 @@ function getClassValue(){
         showRebornCheckbox();
     //expanded base job
     }else if(classValue == 46){
+        base = 1;
+        job = 1;
+        
         min_base_level = 1;
         max_base_level = 185;
         max_job_level = 55;
@@ -128,6 +183,9 @@ function getClassValue(){
         hideRebornCheckbox();
     //expanded first and second job
     }else if(classValue >= 47 && classValue <= 51){
+        base = 1;
+        job = 1;
+        
         min_base_level = 1;
         max_base_level = 99;
         max_job_level = 50;
@@ -144,6 +202,9 @@ function getClassValue(){
         hideRebornCheckbox();
     //expanded third job
     }else if(classValue >= 52 && classValue <= 56){
+        base = 99;
+        job = 1;
+        
         min_base_level = 99;
         max_base_level = 125;
         max_job_level = 65;
@@ -160,6 +221,9 @@ function getClassValue(){
         hideRebornCheckbox();
     //super novice
     }else if(classValue == 57){
+        base = 1;
+        job = 1;
+        
         min_base_level = 1;
         max_base_level = 99;
         max_job_level = 99;
@@ -176,6 +240,9 @@ function getClassValue(){
         hideRebornCheckbox();
     //expanded super novice
     }else if(classValue == 58){
+        base = 99;
+        job = 1;
+        
         min_base_level = 99;
         max_base_level = 185;
         max_job_level = 65;
@@ -194,6 +261,7 @@ function getClassValue(){
     createDropdowns();
 }
 
+//update variables based on numeric dropdowns
 function getNumericValues(){
     base = document.getElementById("base").value;
     job = document.getElementById("job").value;
@@ -206,6 +274,7 @@ function getNumericValues(){
     luk = document.getElementById("luk").value;
 }
 
+//update variables based on adopted checkbox
 function adoptedCheck(){
     var classValue = document.getElementById("class").value;
     var adoptedCheck = document.getElementById("adopted");
@@ -221,8 +290,10 @@ function adoptedCheck(){
             showRebornCheckbox();
         }
     }
+    getClassValue();
 }
 
+//update variables based on reborn checkbox
 function rebornCheck(){
     var adoptedCheck = document.getElementById("adopted");
     var rebornCheck = document.getElementById("reborn");
@@ -235,6 +306,7 @@ function rebornCheck(){
         reborn = false;
         showAdoptedCheckbox();
     }
+    getClassValue();
 }
 
 function hideAdoptedCheckbox(){

@@ -12,7 +12,7 @@
                     Base
                 </th>
                 <th class="field">
-                    <select id="base" onchange="getNumericValues();"></select>
+                    <select id="base" onchange="getNumericValues(); calcStatPoints();"></select>
                 </th>
                 <th class="descriptor">
                     Job
@@ -24,7 +24,7 @@
                     Class
                 </th>
                 <th class="field">
-                    <select id="class" onchange="getClassValue();" size="1">
+                    <select id="class" onchange="getClassValue(); calcStatPoints();" size="1">
                         <!-- Base Job -->
                         <option disabled>Base Job</option>
                         <option value="0">Novice</option>
@@ -112,19 +112,19 @@
                     Str
                 </th>
                 <th class="field">
-                    <select id="str" onchange="getNumericValues();"></select>
+                    <select id="str" onchange="getNumericValues(); calcStatPoints();"></select>
                 </th>
                 <th class="descriptor">
                     Agi
                 </th>
                 <th class="field">
-                    <select id="agi" onchange="getNumericValues();"></select>
+                    <select id="agi" onchange="getNumericValues(); calcStatPoints();"></select>
                 </th>
                 <th class="descriptor">
                     Vit
                 </th>
                 <th class="field">
-                    <select id="vit" onchange="getNumericValues();"></select>
+                    <select id="vit" onchange="getNumericValues(); calcStatPoints();"></select>
                 </th>
             </tr>
             <tr>
@@ -132,19 +132,19 @@
                     Int
                 </th>
                 <th class="field">
-                    <select id="int" onchange="getNumericValues();"></select>
+                    <select id="int" onchange="getNumericValues(); calcStatPoints();"></select>
                 </th>
                 <th class="descriptor">
                     Dex
                 </th>
                 <th class="field">
-                    <select id="dex" onchange="getNumericValues();"></select>
+                    <select id="dex" onchange="getNumericValues(); calcStatPoints();"></select>
                 </th>
                 <th class="descriptor">
                     Luk
                 </th>
                 <th class="field">
-                    <select id="luk" onchange="getNumericValues();"></select>
+                    <select id="luk" onchange="getNumericValues(); calcStatPoints();"></select>
                 </th>
             </tr>
             <tr>
@@ -152,25 +152,31 @@
                     Points left
                 </th>
                 <th class="field">
+                    <div id="stat_points">
+                        Stat Points
+                    </div>
+                    <!--
                     <script>
                         document.write(stat_points);
                     </script>
+                    -->
                 </th>
                 <th class="descriptor">
                     Adopted
                 </th>
                 <th class="field">
-                    <input id="adopted" onchange="adoptedCheck();" type="checkbox">
+                    <input id="adopted" onchange="adoptedCheck(); calcStatPoints();" type="checkbox">
                 </th>
                 <th class="descriptor">
                     Reborn
                 </th>
                 <th class="field">
-                    <input id="reborn" onchange="rebornCheck();" type="checkbox">
+                    <input id="reborn" onchange="rebornCheck(); calcStatPoints();" type="checkbox">
                 </th>
             </tr>
         </table>
         <script>
+            calcStatPoints();
             createDropdowns();
             getClassValue();
             getNumericValues();
