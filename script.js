@@ -20,6 +20,7 @@ var adopted = false;
 var reborn = false;
 
 var stat_points_per_level = [];
+var stat_points_cost_per_increase = [];
 
 //calculate stat gain on level up
 function calcStatGain(level){
@@ -38,7 +39,10 @@ function calcStatGain(level){
     }
 }
 
-//fill array with stat points gained on each level (floor not counted)
+/*
+    fills array indexes with total of stat points gained upon leveling (floor not counted)
+    ex.: level 1 = index 0 = 0, level 2 = index 1 = 3, ...
+*/
 function fillStatPointsArray(){
     stat_points_per_level.push(0);
     for(var i=1;i<185;i++){
@@ -46,9 +50,39 @@ function fillStatPointsArray(){
     }
 }
 
+//calculates how many stat points are used to increase a stat (str, agi, etc) 
+function calcStatCost(stat_number){
+    if(stat_number > 0 && stat_number == 1){
+        return 0;
+    }else if(stat_number <= 100){
+        return 2 + Math.floor((stat_number-2)/10);
+    }else if(stat_number <= 130){
+        return 16 + 4 * Math.floor((stat_number-101)/5);
+    }
+}
+
+//fill array with total stat points
+/*
+    fills array indexes with total of stat points cost to increase a stat
+    ex.: stat 1 = index 0 = 2, stat 2 = index 1 = 4, ...
+*/
+function fillStatPointCostArray(){
+    stat_points_cost_per_increase.push(0);
+    for(var i=1;i<130;i++){
+        stat_points_cost_per_increase.push(stat_points_cost_per_increase[i-1]+calcStatCost(i+1));
+    }
+}
+
 //calculate stat point number
 function calcStatPoints(){
-    stat_points = stat_points_floor+stat_points_per_level[base-1];
+    var totalCost = stat_points_cost_per_increase[str-1];
+    totalCost += stat_points_cost_per_increase[agi-1];
+    totalCost += stat_points_cost_per_increase[vit-1];
+    totalCost += stat_points_cost_per_increase[int-1];
+    totalCost += stat_points_cost_per_increase[dex-1];
+    totalCost += stat_points_cost_per_increase[luk-1];
+    
+    stat_points = stat_points_floor+stat_points_per_level[base-1]-totalCost;
     document.getElementById("stat_points").innerHTML = stat_points;
 }
 
