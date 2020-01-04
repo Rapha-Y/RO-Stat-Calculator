@@ -12,21 +12,14 @@ select option:disabled {
     text-align: center;
 }
 
-table {
-    border-collapse: collapse;
-}
-
-td, th {
+.grid-container {
     border: 1px solid black;
-    font-weight: normal;
-    padding: 3px;
-    text-align: left;
+    display: grid;
+    grid-template-columns: 90px 100px 80px 100px 80px 175px;
+    width: 625px;
 }
 
-th.descriptor {
-    width: 70px;
-}
-
-th.field {
-    width: 100px;
+.grid-item {
+    border: 1px solid black;
+    padding: 2px;
 }
