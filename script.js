@@ -6,7 +6,7 @@ var stat_points_floor = 48;
 
 var base = 1;
 var job = 1;
-var classValue;
+var classValue = 0;
 
 var str = 1;
 var agi = 1;
@@ -18,6 +18,8 @@ var luk = 1;
 var stat_points = 0;
 var adopted = false;
 var reborn = false;
+
+var stat_points_per_level = [];
 
 //calculate stat gain on level up
 function calcStatGain(level){
@@ -36,14 +38,17 @@ function calcStatGain(level){
     }
 }
 
+//fill array with stat points gained on each level (floor not counted)
+function fillStatPointsArray(){
+    stat_points_per_level.push(0);
+    for(var i=1;i<185;i++){
+        stat_points_per_level.push(stat_points_per_level[i-1]+calcStatGain(i+1));
+    }
+}
+
 //calculate stat point number
 function calcStatPoints(){
-    stat_points = stat_points_floor;
-    var aux_level = base;
-    while(aux_level > 0){
-        stat_points = stat_points + calcStatGain(aux_level);
-        aux_level--;
-    }
+    stat_points = stat_points_floor+stat_points_per_level[base-1];
     document.getElementById("stat_points").innerHTML = stat_points;
 }
 

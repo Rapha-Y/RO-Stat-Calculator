@@ -155,11 +155,6 @@
                     <div id="stat_points">
                         Stat Points
                     </div>
-                    <!--
-                    <script>
-                        document.write(stat_points);
-                    </script>
-                    -->
                 </th>
                 <th class="descriptor">
                     Adopted
@@ -176,6 +171,7 @@
             </tr>
         </table>
         <script>
+            fillStatPointsArray();
             calcStatPoints();
             createDropdowns();
             getClassValue();
