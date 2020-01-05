@@ -21,5 +21,10 @@ select option:disabled {
 
 .grid-item {
     border: 1px solid black;
+    display: flex;
     padding: 2px;
+}
+
+.item-text {
+    padding-left: 3px;
 }
