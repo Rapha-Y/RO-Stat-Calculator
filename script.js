@@ -87,11 +87,7 @@ function calcStatPoints(){
 }
 
 //update variables based on class value
-function getClassValue(){
-    classValue = document.getElementById("class").value;
-    var adoptedCheck = document.getElementById("adopted");
-    var rebornCheck = document.getElementById("reborn");
-    
+function updateOnClassChange(){    
     str = 1;
     agi = 1;
     vit = 1;
@@ -301,9 +297,10 @@ function getClassValue(){
 }
 
 //update variables based on numeric dropdowns
-function getNumericValues(){
+function getDropdownValues(){
     base = document.getElementById("base").value;
     job = document.getElementById("job").value;
+    classValue = document.getElementById("class").value;
 
     str = document.getElementById("str").value;
     agi = document.getElementById("agi").value;
@@ -322,14 +319,16 @@ function adoptedCheck(){
         adopted = true;
         reborn = false;
         rebornCheck.checked = false;
+        updateOnClassChange();
         hideRebornCheckbox();
     }else{
         adopted = false;
         if((classValue >= 0 && classValue <= 6) || (classValue >= 33 && classValue <= 45)){
+            updateOnClassChange();
             showRebornCheckbox();
         }
     }
-    getClassValue();
+    createDropdowns();
 }
 
 //update variables based on reborn checkbox
@@ -340,12 +339,15 @@ function rebornCheck(){
         reborn = true;
         adopted = false;
         adoptedCheck.checked = false;
+        updateOnClassChange();
         hideAdoptedCheckbox();
     }else{
         reborn = false;
+        updateOnClassChange();
         showAdoptedCheckbox();
     }
-    getClassValue();
+    calcStatPoints();
+    createDropdowns();
 }
 
 function hideAdoptedCheckbox(){

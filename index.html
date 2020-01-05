@@ -11,19 +11,19 @@
                 Base
             </div>
             <div class="grid-item">
-                <select id="base" onchange="getNumericValues(); calcStatPoints();"></select>
+                <select id="base" onchange="getDropdownValues(); calcStatPoints();"></select>
             </div>
             <div class="grid-item">
                 Job
             </div>
             <div class="grid-item">
-                <select id="job" onchange="getNumericValues();"></select>
+                <select id="job" onchange="getDropdownValues();"></select>
             </div>
             <div class="grid-item">
                 Class
             </div>
             <div class="grid-item">
-                <select id="class" onchange="getClassValue(); calcStatPoints();" size="1">
+                <select id="class" onchange="getDropdownValues(); updateOnClassChange(); calcStatPoints();" size="1">
                     <!-- Base Job -->
                     <option disabled>Base Job</option>
                     <option value="0">Novice</option>
@@ -109,37 +109,37 @@
                 Str
             </div>
             <div class="grid-item">
-                <select id="str" onchange="getNumericValues(); calcStatPoints();"></select>
+                <select id="str" onchange="getDropdownValues(); calcStatPoints();"></select>
             </div>
             <div class="grid-item">
                 Agi
             </div>
             <div class="grid-item">
-                <select id="agi" onchange="getNumericValues(); calcStatPoints();"></select>
+                <select id="agi" onchange="getDropdownValues(); calcStatPoints();"></select>
             </div>
             <div class="grid-item">
                 Vit
             </div>
             <div class="grid-item">
-                <select id="vit" onchange="getNumericValues(); calcStatPoints();"></select>
+                <select id="vit" onchange="getDropdownValues(); calcStatPoints();"></select>
             </div>
             <div class="grid-item">
                 Int
             </div>
             <div class="grid-item">
-                <select id="int" onchange="getNumericValues(); calcStatPoints();"></select>
+                <select id="int" onchange="getDropdownValues(); calcStatPoints();"></select>
             </div>
             <div class="grid-item">
                 Dex
             </div>
             <div class="grid-item">
-                <select id="dex" onchange="getNumericValues(); calcStatPoints();"></select>
+                <select id="dex" onchange="getDropdownValues(); calcStatPoints();"></select>
             </div>
             <div class="grid-item">
                 Luk
             </div>
             <div class="grid-item">
-                <select id="luk" onchange="getNumericValues(); calcStatPoints();"></select>
+                <select id="luk" onchange="getDropdownValues(); calcStatPoints();"></select>
             </div>
             <div class="grid-item">
                 Points left
@@ -165,8 +165,8 @@
             fillStatPointCostArray();
             calcStatPoints();
             createDropdowns();
-            getClassValue();
-            getNumericValues();
+            updateOnClassChange();
+            getDropdownValues();
         </script>
     </body>
 </html>
