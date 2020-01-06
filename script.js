@@ -52,6 +52,7 @@ function fillStatPointsArray(){
 
 //calculates how many stat points are used to increase a stat (str, agi, etc) 
 function calcStatCost(stat_number){
+    console.log(stat_number);
     if(stat_number > 0 && stat_number == 1){
         return 0;
     }else if(stat_number <= 100){
@@ -70,6 +71,46 @@ function fillStatPointCostArray(){
     stat_points_cost_per_increase.push(0);
     for(var i=1;i<130;i++){
         stat_points_cost_per_increase.push(stat_points_cost_per_increase[i-1]+calcStatCost(i+1));
+    }
+}
+
+//shows the cost for increasing each stat
+function showCost(){
+    if(str < 130){
+        str_aux = parseFloat(str) + 1;
+        document.getElementById("str-cost").innerHTML = "(" + calcStatCost(str_aux) + ")";
+    }else{
+        document.getElementById("str-cost").innerHTML = "(0)";   
+    }
+    if(agi < 130){
+        agi_aux = parseFloat(agi) + 1;
+        document.getElementById("agi-cost").innerHTML = "(" + calcStatCost(agi_aux) + ")";
+    }else{
+        document.getElementById("agi-cost").innerHTML = "(0)";   
+    }
+    if(vit < 130){
+        vit_aux = parseFloat(vit) + 1;
+        document.getElementById("vit-cost").innerHTML = "(" + calcStatCost(vit_aux) + ")";
+    }else{
+        document.getElementById("vit-cost").innerHTML = "(0)";   
+    }
+    if(int < 130){
+        int_aux = parseFloat(int) + 1;
+        document.getElementById("int-cost").innerHTML = "(" + calcStatCost(int_aux) + ")";
+    }else{
+        document.getElementById("int-cost").innerHTML = "(0)";   
+    }
+    if(dex < 130){
+        dex_aux = parseFloat(dex) + 1;
+        document.getElementById("dex-cost").innerHTML = "(" + calcStatCost(dex_aux) + ")";
+    }else{
+        document.getElementById("dex-cost").innerHTML = "(0)";   
+    }
+    if(luk < 130){
+        luk_aux = parseFloat(luk) + 1;
+        document.getElementById("luk-cost").innerHTML = "(" + calcStatCost(luk_aux) + ")";
+    }else{
+        document.getElementById("luk-cost").innerHTML = "(0)";   
     }
 }
 
