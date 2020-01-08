@@ -52,7 +52,6 @@ function fillStatPointsArray(){
 
 //calculates how many stat points are used to increase a stat (str, agi, etc) 
 function calcStatCost(stat_number){
-    console.log(stat_number);
     if(stat_number > 0 && stat_number == 1){
         return 0;
     }else if(stat_number <= 100){
@@ -127,33 +126,51 @@ function calcStatPoints(){
     document.getElementById("stat_points").innerHTML = stat_points;
 }
 
+//updates the maximum value a stat can get to
+function setStatCeiling(number){
+    document.getElementById("str").max = "\"" + number + "\"";
+    document.getElementById("agi").max = "\"" + number + "\"";
+    document.getElementById("vit").max = "\"" + number + "\"";
+    document.getElementById("int").max = "\"" + number + "\"";
+    document.getElementById("dex").max = "\"" + number + "\"";
+    document.getElementById("luk").max = "\"" + number + "\"";
+}
+
 //update variables based on class value
-function updateOnClassChange(){    
+function updateOnClassChange(){  
     str = 1;
     agi = 1;
     vit = 1;
     int = 1;
     dex = 1;
     luk = 1;
-
+    document.getElementById("str").value = 1;
+    document.getElementById("agi").value = 1;
+    document.getElementById("vit").value = 1;
+    document.getElementById("int").value = 1;
+    document.getElementById("dex").value = 1;
+    document.getElementById("luk").value     = 1;
+    
     //base job
     if(classValue == 0){
         base = 1;
         job = 1;
+        document.getElementById("base").value = "1";
+        document.getElementById("job").value = "1";
 
-        min_base_level = 1;
-        max_base_level = 99;
-        max_job_level = 10;
+        document.getElementById("base").min = "1";
+        document.getElementById("base").max = "99";
+        document.getElementById("job").max = "10";
         if(reborn == false){
             stat_points_floor = 48;
             if(adopted == false){
-                max_stat_points = 99;
+                setStatCeiling(99);
             }else{
-                max_stat_points = 80;
+                setStatCeiling(80);
             }
         }else{
             stat_points_floor = 100;
-            max_stat_points = 99;
+            setStatCeiling(99);
         }
 
         showAdoptedCheckbox();
@@ -162,20 +179,22 @@ function updateOnClassChange(){
     }else if(classValue >= 1 && classValue <= 6){
         base = 1;
         job = 1;
-        
-        min_base_level = 1;
-        max_base_level = 99;
-        max_job_level = 50;
+        document.getElementById("base").value = "1";
+        document.getElementById("job").value = "1";
+
+        document.getElementById("base").min = "1";
+        document.getElementById("base").max = "99";
+        document.getElementById("job").max = "50";
         if(reborn == false){
             stat_points_floor = 48;
             if(adopted == false){
-                max_stat_points = 99;
+                setStatCeiling(99);
             }else{
-                max_stat_points = 80;
+                setStatCeiling(80);
             }
         }else{
             stat_points_floor = 100;
-            max_stat_points = 99;
+            setStatCeiling(99);
         }
 
         showAdoptedCheckbox();
@@ -184,15 +203,17 @@ function updateOnClassChange(){
     }else if(classValue >= 7 && classValue <= 19){
         base = 1;
         job = 1;
-        
-        min_base_level = 1;
-        max_base_level = 99;
-        max_job_level = 50;
+        document.getElementById("base").value = "1";
+        document.getElementById("job").value = "1";
+
+        document.getElementById("base").min = "1";
+        document.getElementById("base").max = "99";
+        document.getElementById("job").max = "50";
         stat_points_floor = 48;
         if(adopted == false){
-            max_stat_points = 99;
+            setStatCeiling(99);
         }else{
-            max_stat_points = 80;
+            setStatCeiling(80);
         }
 
         showAdoptedCheckbox();
@@ -203,12 +224,14 @@ function updateOnClassChange(){
     }else if(classValue >= 20 && classValue <= 32){
         base = 1;
         job = 1;
-        
-        min_base_level = 1;
-        max_base_level = 99;
-        max_job_level = 70;
+        document.getElementById("base").value = "1";
+        document.getElementById("job").value = "1";
+
+        document.getElementById("base").min = "1";
+        document.getElementById("base").max = "99";
+        document.getElementById("job").max = "70";
         stat_points_floor = 100;
-        max_stat_points = 99;
+        setStatCeiling(99);
 
         adopted = false;
         adoptedCheck.checked = false;
@@ -220,20 +243,22 @@ function updateOnClassChange(){
     }else if(classValue >= 33 && classValue <= 45){
         base = 99;
         job = 1;
+        document.getElementById("base").value = "99";
+        document.getElementById("job").value = "1";
         
-        min_base_level = 99;
-        max_base_level = 185;
-        max_job_level = 65;
+        document.getElementById("base").min = "99";
+        document.getElementById("base").max = "185";
+        document.getElementById("job").max = "65";
         if(reborn == false){
             stat_points_floor = 48;
             if(adopted == false){
-                max_stat_points = 130;
+                setStatCeiling(130);
             }else{
-                max_stat_points = 117;
+                setStatCeiling(117);
             }
         }else{
             stat_points_floor = 100;
-            max_stat_points = 130;
+            setStatCeiling(130);
         }
 
         showAdoptedCheckbox();
@@ -242,15 +267,17 @@ function updateOnClassChange(){
     }else if(classValue == 46){
         base = 1;
         job = 1;
-        
-        min_base_level = 1;
-        max_base_level = 185;
-        max_job_level = 55;
+        document.getElementById("base").value = "1";
+        document.getElementById("job").value = "1";
+
+        document.getElementById("base").min = "1";
+        document.getElementById("base").max = "185";
+        document.getElementById("job").max = "55";
         stat_points_floor = 48;
         if(adopted == false){
-            max_stat_points = 125;
+            setStatCeiling(125);
         }else{
-            max_stat_points = 117;
+            setStatCeiling(117);
         }
 
         showAdoptedCheckbox();
@@ -261,15 +288,17 @@ function updateOnClassChange(){
     }else if(classValue >= 47 && classValue <= 51){
         base = 1;
         job = 1;
-        
-        min_base_level = 1;
-        max_base_level = 99;
-        max_job_level = 50;
+        document.getElementById("base").value = "1";
+        document.getElementById("job").value = "1";
+
+        document.getElementById("base").min = "1";
+        document.getElementById("base").max = "99";
+        document.getElementById("job").max = "50";
         stat_points_floor = 48;
         if(adopted == false){
-            max_stat_points = 99;
+            setStatCeiling(99);
         }else{
-            max_stat_points = 80;
+            setStatCeiling(80);
         }
 
         showAdoptedCheckbox();
@@ -280,15 +309,17 @@ function updateOnClassChange(){
     }else if(classValue >= 52 && classValue <= 56){
         base = 99;
         job = 1;
-        
-        min_base_level = 99;
-        max_base_level = 125;
-        max_job_level = 65;
+        document.getElementById("base").value = "99";
+        document.getElementById("job").value = "1";
+
+        document.getElementById("base").min = "99";
+        document.getElementById("base").max = "125";
+        document.getElementById("job").max = "65";
         stat_points_floor = 48;
         if(adopted == false){
-            max_stat_points = 125;
+            setStatCeiling(125);
         }else{
-            max_stat_points = 117;
+            setStatCeiling(117);
         }
 
         showAdoptedCheckbox();
@@ -299,15 +330,17 @@ function updateOnClassChange(){
     }else if(classValue == 57){
         base = 1;
         job = 1;
-        
-        min_base_level = 1;
-        max_base_level = 99;
-        max_job_level = 99;
+        document.getElementById("base").value = "1";
+        document.getElementById("job").value = "1";
+
+        document.getElementById("base").min = "1";
+        document.getElementById("base").max = "99";
+        document.getElementById("job").max = "99";
         stat_points_floor = 48;
         if(adopted == false){
-            max_stat_points = 99;
+            setStatCeiling(99);
         }else{
-            max_stat_points = 80;
+            setStatCeiling(80);
         }
 
         showAdoptedCheckbox();
@@ -318,15 +351,17 @@ function updateOnClassChange(){
     }else if(classValue == 58){
         base = 99;
         job = 1;
-        
-        min_base_level = 99;
-        max_base_level = 185;
-        max_job_level = 65;
+        document.getElementById("base").value = "99";
+        document.getElementById("job").value = "1";
+
+        document.getElementById("base").min = "99";
+        document.getElementById("base").max = "185";
+        document.getElementById("job").max = "65";
         stat_points_floor = 48;
         if(adopted == false){
-            max_stat_points = 130;
+            setStatCeiling(130);
         }else{
-            max_stat_points = 117;
+            setStatCeiling(117);
         }
 
         showAdoptedCheckbox();
@@ -334,11 +369,10 @@ function updateOnClassChange(){
         rebornCheck.checked = false;
         hideRebornCheckbox();
     }
-    createDropdowns();
 }
 
-//update variables based on numeric dropdowns
-function getDropdownValues(){
+//update variables based on inputs
+function getInputValues(){
     base = document.getElementById("base").value;
     job = document.getElementById("job").value;
     classValue = document.getElementById("class").value;
@@ -369,7 +403,6 @@ function adoptedCheck(){
             showRebornCheckbox();
         }
     }
-    createDropdowns();
 }
 
 //update variables based on reborn checkbox
@@ -388,7 +421,6 @@ function rebornCheck(){
         showAdoptedCheckbox();
     }
     calcStatPoints();
-    createDropdowns();
 }
 
 function hideAdoptedCheckbox(){
@@ -406,81 +438,3 @@ function hideRebornCheckbox(){
 function showRebornCheckbox(){
     document.getElementById("reborn").style.display = "block";
 }
-
-function clearDropdowns(){
-    var select;
-
-    select = document.getElementById("base");
-    for(var i=select.options.length-1;i>=0;i--){
-        select.remove(i);
-    }
-    select = document.getElementById("job");
-    for(var i=select.options.length-1;i>=0;i--){
-        select.remove(i);
-    }
-
-    select = document.getElementById("str");
-    for(var i=select.options.length-1;i>=0;i--){
-        select.remove(i);
-    }
-    select = document.getElementById("agi");
-    for(var i=select.options.length-1;i>=0;i--){
-        select.remove(i);
-    }
-    select = document.getElementById("vit");
-    for(var i=select.options.length-1;i>=0;i--){
-        select.remove(i);
-    }
-    select = document.getElementById("int");
-    for(var i=select.options.length-1;i>=0;i--){
-        select.remove(i);
-    }
-    select = document.getElementById("dex");
-    for(var i=select.options.length-1;i>=0;i--){
-        select.remove(i);
-    }
-    select = document.getElementById("luk");
-    for(var i=select.options.length-1;i>=0;i--){
-        select.remove(i);
-    }
-}
-
-function createDropdowns(){
-    clearDropdowns();
-    var select;
-    
-    select = document.getElementById("base");
-    for(var i=min_base_level;i<=max_base_level;i++){
-        select.options[select.options.length] = new Option(i, i);
-    }
-    select = document.getElementById("job");
-    for(var i=1;i<=max_job_level;i++){
-        select.options[select.options.length] = new Option(i, i);
-    }
-
-    select = document.getElementById("str");
-    for(var i=1;i<=max_stat_points;i++){
-        select.options[select.options.length] = new Option(i, i);
-    }
-    select = document.getElementById("agi");
-    for(var i=1;i<=max_stat_points;i++){
-        select.options[select.options.length] = new Option(i, i);
-    }
-    select = document.getElementById("vit");
-    for(var i=1;i<=max_stat_points;i++){
-        select.options[select.options.length] = new Option(i, i);
-    }
-    select = document.getElementById("int");
-    for(var i=1;i<=max_stat_points;i++){
-        select.options[select.options.length] = new Option(i, i);
-    }
-    select = document.getElementById("dex");
-    for(var i=1;i<=max_stat_points;i++){
-        select.options[select.options.length] = new Option(i, i);
-    }
-    select = document.getElementById("luk");
-    for(var i=1;i<=max_stat_points;i++){
-        select.options[select.options.length] = new Option(i, i);
-    }
-}
-

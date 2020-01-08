@@ -6,6 +6,11 @@ body {
     font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
 }
 
+input[type="number"] {
+    padding-left: 3px;
+    width: 45px;
+}
+
 select option:disabled {
     color: rgba(0, 0, 0, 0.95);
     font-weight: bold;
@@ -15,8 +20,8 @@ select option:disabled {
 .grid-container {
     border: 1px solid black;
     display: grid;
-    grid-template-columns: 90px 115px 80px 115px 80px 175px;
-    width: 655px;
+    grid-template-columns: 90px 125px 80px 125px 80px 175px;
+    width: 675px;
 }
 
 .grid-item {
