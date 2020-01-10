@@ -128,12 +128,12 @@ function calcStatPoints(){
 
 //updates the maximum value a stat can get to
 function setStatCeiling(number){
-    document.getElementById("str").max = "\"" + number + "\"";
-    document.getElementById("agi").max = "\"" + number + "\"";
-    document.getElementById("vit").max = "\"" + number + "\"";
-    document.getElementById("int").max = "\"" + number + "\"";
-    document.getElementById("dex").max = "\"" + number + "\"";
-    document.getElementById("luk").max = "\"" + number + "\"";
+    document.getElementById("str").max = number;
+    document.getElementById("agi").max = number;
+    document.getElementById("vit").max = number;
+    document.getElementById("int").max = number;
+    document.getElementById("dex").max = number;
+    document.getElementById("luk").max = number;
 }
 
 //update variables based on class value
@@ -149,7 +149,7 @@ function updateOnClassChange(){
     document.getElementById("vit").value = 1;
     document.getElementById("int").value = 1;
     document.getElementById("dex").value = 1;
-    document.getElementById("luk").value     = 1;
+    document.getElementById("luk").value = 1;
     
     //base job
     if(classValue == 0){
@@ -158,14 +158,19 @@ function updateOnClassChange(){
         document.getElementById("base").value = "1";
         document.getElementById("job").value = "1";
 
+        min_base_level = 1;
+        max_base_level = 99;
+        max_job_level = 10;
         document.getElementById("base").min = "1";
         document.getElementById("base").max = "99";
         document.getElementById("job").max = "10";
         if(reborn == false){
             stat_points_floor = 48;
             if(adopted == false){
+                max_stat_points = 99;
                 setStatCeiling(99);
             }else{
+                max_stat_points = 80;
                 setStatCeiling(80);
             }
         }else{
@@ -182,14 +187,19 @@ function updateOnClassChange(){
         document.getElementById("base").value = "1";
         document.getElementById("job").value = "1";
 
+        min_base_level = 1;
+        max_base_level = 99;
+        max_job_level = 50;
         document.getElementById("base").min = "1";
         document.getElementById("base").max = "99";
         document.getElementById("job").max = "50";
         if(reborn == false){
             stat_points_floor = 48;
             if(adopted == false){
+                max_stat_points = 99;
                 setStatCeiling(99);
             }else{
+                max_stat_points = 80;
                 setStatCeiling(80);
             }
         }else{
@@ -206,13 +216,18 @@ function updateOnClassChange(){
         document.getElementById("base").value = "1";
         document.getElementById("job").value = "1";
 
+        min_base_level = 1;
+        max_base_level = 99;
+        max_job_level = 50;
         document.getElementById("base").min = "1";
         document.getElementById("base").max = "99";
         document.getElementById("job").max = "50";
         stat_points_floor = 48;
         if(adopted == false){
+            max_stat_points = 99;
             setStatCeiling(99);
         }else{
+            max_stat_points = 80;
             setStatCeiling(80);
         }
 
@@ -227,10 +242,14 @@ function updateOnClassChange(){
         document.getElementById("base").value = "1";
         document.getElementById("job").value = "1";
 
+        min_base_level = 1;
+        max_base_level = 99;
+        max_job_level = 70;
         document.getElementById("base").min = "1";
         document.getElementById("base").max = "99";
         document.getElementById("job").max = "70";
         stat_points_floor = 100;
+        max_stat_points = 99;
         setStatCeiling(99);
 
         adopted = false;
@@ -245,15 +264,20 @@ function updateOnClassChange(){
         job = 1;
         document.getElementById("base").value = "99";
         document.getElementById("job").value = "1";
-        
+
+        min_base_level = 99;
+        max_base_level = 185;
+        max_job_level = 65;
         document.getElementById("base").min = "99";
         document.getElementById("base").max = "185";
         document.getElementById("job").max = "65";
         if(reborn == false){
             stat_points_floor = 48;
             if(adopted == false){
+                max_stat_points = 130;
                 setStatCeiling(130);
             }else{
+                max_stat_points = 117;
                 setStatCeiling(117);
             }
         }else{
@@ -270,13 +294,18 @@ function updateOnClassChange(){
         document.getElementById("base").value = "1";
         document.getElementById("job").value = "1";
 
+        min_base_level = 1;
+        max_base_level = 185;
+        max_job_level = 55;
         document.getElementById("base").min = "1";
         document.getElementById("base").max = "185";
         document.getElementById("job").max = "55";
         stat_points_floor = 48;
         if(adopted == false){
+            max_stat_points = 125;
             setStatCeiling(125);
         }else{
+            max_stat_points = 117;
             setStatCeiling(117);
         }
 
@@ -291,13 +320,18 @@ function updateOnClassChange(){
         document.getElementById("base").value = "1";
         document.getElementById("job").value = "1";
 
+        min_base_level = 1;
+        max_base_level = 99;
+        max_job_level = 50;
         document.getElementById("base").min = "1";
         document.getElementById("base").max = "99";
         document.getElementById("job").max = "50";
         stat_points_floor = 48;
         if(adopted == false){
+            max_stat_points = 99;
             setStatCeiling(99);
         }else{
+            max_stat_points = 80;
             setStatCeiling(80);
         }
 
@@ -312,13 +346,18 @@ function updateOnClassChange(){
         document.getElementById("base").value = "99";
         document.getElementById("job").value = "1";
 
+        min_base_level = 99;
+        max_base_level = 185;
+        max_job_level = 65;
         document.getElementById("base").min = "99";
-        document.getElementById("base").max = "125";
+        document.getElementById("base").max = "185";
         document.getElementById("job").max = "65";
         stat_points_floor = 48;
         if(adopted == false){
+            max_stat_points = 125;
             setStatCeiling(125);
         }else{
+            max_stat_points = 117;
             setStatCeiling(117);
         }
 
@@ -333,13 +372,18 @@ function updateOnClassChange(){
         document.getElementById("base").value = "1";
         document.getElementById("job").value = "1";
 
+        min_base_level = 1;
+        max_base_level = 99;
+        max_job_level = 99;
         document.getElementById("base").min = "1";
         document.getElementById("base").max = "99";
         document.getElementById("job").max = "99";
         stat_points_floor = 48;
         if(adopted == false){
+            max_stat_points = 99;
             setStatCeiling(99);
         }else{
+            max_stat_points = 80;
             setStatCeiling(80);
         }
 
@@ -354,13 +398,18 @@ function updateOnClassChange(){
         document.getElementById("base").value = "99";
         document.getElementById("job").value = "1";
 
+        min_base_level = 99;
+        max_base_level = 185;
+        max_job_level = 65;
         document.getElementById("base").min = "99";
         document.getElementById("base").max = "185";
         document.getElementById("job").max = "65";
         stat_points_floor = 48;
         if(adopted == false){
+            max_stat_points = 130;
             setStatCeiling(130);
         }else{
+            max_stat_points = 117;
             setStatCeiling(117);
         }
 
@@ -368,6 +417,67 @@ function updateOnClassChange(){
         reborn = false;
         rebornCheck.checked = false;
         hideRebornCheckbox();
+    }
+}
+
+//forces numeric input to fit interval even when it's typed
+function fitMinMaxInputInterval(){
+    if(base<min_base_level){
+        base = min_base_level;
+        document.getElementById("base").value = min_base_level;
+    }else if(base>max_base_level){
+        base = max_base_level;
+        document.getElementById("base").value = max_base_level;
+    }
+    if(job<1){
+        job = 1;
+        document.getElementById("job").value = 1;
+    }else if(job>max_stat_points){
+        job = max_job_level;
+        document.getElementById("job").value = max_job_level;
+    }
+
+    if(str<1){
+        str = 1;
+        document.getElementById("str").value = 1;
+    }else if(str>max_stat_points){
+        str = max_stat_points;
+        document.getElementById("str").value = max_stat_points;
+    }
+    if(agi<1){
+        agi = 1;
+        document.getElementById("agi").value = 1;
+    }else if(str>max_stat_points){
+        agi = max_stat_points;
+        document.getElementById("agi").value = max_stat_points;
+    }
+    if(vit<1){
+        vit = 1;
+        document.getElementById("vit").value = 1;
+    }else if(vit>max_stat_points){
+        vit = max_stat_points;
+        document.getElementById("vit").value = max_stat_points;
+    }
+    if(int<1){
+        int = 1;
+        document.getElementById("int").value = 1;
+    }else if(int>max_stat_points){
+        int = max_stat_points;
+        document.getElementById("int").value = max_stat_points;
+    }
+    if(dex<1){
+        dex = 1;
+        document.getElementById("dex").value = 1;
+    }else if(dex>max_stat_points){
+        dex = max_stat_points;
+        document.getElementById("dex").value = max_stat_points;
+    }
+    if(luk<1){
+        luk = 1;
+        document.getElementById("luk").value = 1;
+    }else if(luk>max_stat_points){
+        luk = max_stat_points;
+        document.getElementById("luk").value = max_stat_points;
     }
 }
 
@@ -383,6 +493,8 @@ function getInputValues(){
     int = document.getElementById("int").value;
     dex = document.getElementById("dex").value;
     luk = document.getElementById("luk").value;
+
+    fitMinMaxInputInterval();
 }
 
 //update variables based on adopted checkbox
