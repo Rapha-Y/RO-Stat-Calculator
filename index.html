@@ -23,7 +23,7 @@
                 Class
             </div>
             <div class="grid-item">
-                <select id="class" onchange="getInputValues(); updateOnClassChange(); calcStatPoints(); showCost();" size="1">
+                <select id="class" onchange="getInputValues(); updateOnClassChange(); calcStatPoints(); showCost(); showJobBonuses();" size="1">
                     <!-- Base Job -->
                     <option disabled>Base Job</option>
                     <option value="0">Novice</option>
@@ -110,7 +110,7 @@
             </div>
             <div class="grid-item">
                 <input id="str" onchange="getInputValues(); calcStatPoints(); showCost();" min="1" max="99" type="number" value="1">
-                <div class="item-text" id="bonus-str">+10</div class="text">
+                <div class="item-text" id="bonus-str"></div class="text">
                 <div class="item-text" id="str-cost"></div>
             </div>
             <div class="grid-item">
@@ -118,7 +118,7 @@
             </div>
             <div class="grid-item">
                 <input id="agi" onchange="getInputValues(); calcStatPoints(); showCost();" min="1" max="99" type="number" value="1">
-                <div class="item-text" id="bonus-agi">+10</div class="text">
+                <div class="item-text" id="bonus-agi"></div class="text">
                 <div class="item-text" id="agi-cost"></div>
             </div>
             <div class="grid-item">
@@ -126,7 +126,7 @@
             </div>
             <div class="grid-item">
                 <input id="vit" onchange="getInputValues(); calcStatPoints(); showCost();" min="1" max="99" type="number" value="1">
-                <div class="item-text" id="bonus-vi">+10</div class="text">
+                <div class="item-text" id="bonus-vit"></div class="text">
                 <div class="item-text" id="vit-cost"></div>
             </div>
             <div class="grid-item">
@@ -134,7 +134,7 @@
             </div>
             <div class="grid-item">
                 <input id="int" onchange="getInputValues(); calcStatPoints(); showCost();" min="1" max="99" type="number" value="1">
-                <div class="item-text" id="bonus-int">+10</div class="text">
+                <div class="item-text" id="bonus-int"></div class="text">
                 <div class="item-text" id="int-cost"></div>
             </div>
             <div class="grid-item">
@@ -142,7 +142,7 @@
             </div>
             <div class="grid-item">
                 <input id="dex" onchange="getInputValues(); calcStatPoints(); showCost();" min="1" max="99" type="number" value="1">
-                <div class="item-text" id="bonus-dex">+10</div class="text">
+                <div class="item-text" id="bonus-dex"></div class="text">
                 <div class="item-text" id="dex-cost"></div>
             </div>
             <div class="grid-item">
@@ -150,7 +150,7 @@
             </div>
             <div class="grid-item">
                 <input id="luk" onchange="getInputValues(); calcStatPoints(); showCost();" min="1" max="99" type="number" value="1">
-                <div class="item-text" id="bonus-luk">+10</div class="text">
+                <div class="item-text" id="bonus-luk"></div class="text">
                 <div class= "item-text" id="luk-cost"></div>
             </div>
             <div class="grid-item">
@@ -177,6 +177,7 @@
             fillStatPointCostArray();
             calcStatPoints();
             showCost();
+            showJobBonuses();
             updateOnClassChange();
             getInputValues();
         </script>

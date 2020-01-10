@@ -6,7 +6,7 @@ var stat_points_floor = 48;
 
 var base = 1;
 var job = 1;
-var classValue = 0;
+var classValue = "0";
 
 var str = 1;
 var agi = 1;
@@ -71,6 +71,16 @@ function fillStatPointCostArray(){
     for(var i=1;i<130;i++){
         stat_points_cost_per_increase.push(stat_points_cost_per_increase[i-1]+calcStatCost(i+1));
     }
+}
+
+//shows the stat bonuses based on class
+function showJobBonuses(){
+    document.getElementById("bonus-str").innerHTML = "+?";
+    document.getElementById("bonus-agi").innerHTML = "+?";
+    document.getElementById("bonus-vit").innerHTML = "+?";
+    document.getElementById("bonus-int").innerHTML = "+?";
+    document.getElementById("bonus-dex").innerHTML = "+?";
+    document.getElementById("bonus-luk").innerHTML = "+?";
 }
 
 //shows the cost for increasing each stat
