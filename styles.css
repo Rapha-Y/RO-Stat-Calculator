@@ -17,11 +17,18 @@ select option:disabled {
     text-align: center;
 }
 
-.grid-container {
+.grid-container-1 {
     border: 1px solid black;
     display: grid;
     grid-template-columns: 90px 125px 80px 125px 80px 175px;
     width: 675px;
+}
+
+.grid-container-2 {
+    border: 1px solid black;
+    display: grid;
+    grid-template-columns: 60px 180px 60px 180px;
+    width: 480px;
 }
 
 .grid-item {
