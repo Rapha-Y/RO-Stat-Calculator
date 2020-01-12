@@ -5,8 +5,8 @@ var min_base_level = 1;
 var stat_points_floor = 48;
 
 var base = 1;
-var job = 1;
-var classValue = "0";
+var job = 10;
+var classValue = 0;
 
 var str = 1;
 var agi = 1;
@@ -75,12 +75,20 @@ function fillStatPointCostArray(){
 
 //shows the stat bonuses based on class
 function showJobBonuses(){
-    document.getElementById("bonus-str").innerHTML = "+?";
-    document.getElementById("bonus-agi").innerHTML = "+?";
-    document.getElementById("bonus-vit").innerHTML = "+?";
-    document.getElementById("bonus-int").innerHTML = "+?";
-    document.getElementById("bonus-dex").innerHTML = "+?";
-    document.getElementById("bonus-luk").innerHTML = "+?";
+    var xhttp = new XMLHttpRequest();
+    xhttp.onreadystatechange = function(){
+        if(this.readyState == 4 && this.status == 200){
+            var response = JSON.parse(xhttp.responseText);
+            document.getElementById("bonus-str").innerHTML = "+" + response[classValue].jobBonuses[0];
+            document.getElementById("bonus-agi").innerHTML = "+" + response[classValue].jobBonuses[1];
+            document.getElementById("bonus-vit").innerHTML = "+" + response[classValue].jobBonuses[2];
+            document.getElementById("bonus-int").innerHTML = "+" + response[classValue].jobBonuses[3];
+            document.getElementById("bonus-dex").innerHTML = "+" + response[classValue].jobBonuses[4];
+            document.getElementById("bonus-luk").innerHTML = "+" + response[classValue].jobBonuses[5];
+        }
+    };
+    xhttp.open("GET", "job_data.json", true);
+    xhttp.send();
 }
 
 //shows the cost for increasing each stat
@@ -164,9 +172,9 @@ function updateOnClassChange(){
     //base job
     if(classValue == 0){
         base = 1;
-        job = 1;
+        job = 10;
         document.getElementById("base").value = "1";
-        document.getElementById("job").value = "1";
+        document.getElementById("job").value = "10";
 
         min_base_level = 1;
         max_base_level = 99;
@@ -193,9 +201,9 @@ function updateOnClassChange(){
     //first job
     }else if(classValue >= 1 && classValue <= 6){
         base = 1;
-        job = 1;
+        job = 50;
         document.getElementById("base").value = "1";
-        document.getElementById("job").value = "1";
+        document.getElementById("job").value = "50";
 
         min_base_level = 1;
         max_base_level = 99;
@@ -222,9 +230,9 @@ function updateOnClassChange(){
     //second job
     }else if(classValue >= 7 && classValue <= 19){
         base = 1;
-        job = 1;
+        job = 50;
         document.getElementById("base").value = "1";
-        document.getElementById("job").value = "1";
+        document.getElementById("job").value = "50";
 
         min_base_level = 1;
         max_base_level = 99;
@@ -248,9 +256,9 @@ function updateOnClassChange(){
     //second job (trans)
     }else if(classValue >= 20 && classValue <= 32){
         base = 1;
-        job = 1;
+        job = 70;
         document.getElementById("base").value = "1";
-        document.getElementById("job").value = "1";
+        document.getElementById("job").value = "70";
 
         min_base_level = 1;
         max_base_level = 99;
@@ -271,9 +279,9 @@ function updateOnClassChange(){
     //third job
     }else if(classValue >= 33 && classValue <= 45){
         base = 99;
-        job = 1;
+        job = 65;
         document.getElementById("base").value = "99";
-        document.getElementById("job").value = "1";
+        document.getElementById("job").value = "65";
 
         min_base_level = 99;
         max_base_level = 185;
@@ -300,9 +308,9 @@ function updateOnClassChange(){
     //expanded base job
     }else if(classValue == 46){
         base = 1;
-        job = 1;
+        job = 55;
         document.getElementById("base").value = "1";
-        document.getElementById("job").value = "1";
+        document.getElementById("job").value = "55";
 
         min_base_level = 1;
         max_base_level = 185;
@@ -324,11 +332,61 @@ function updateOnClassChange(){
         rebornCheck.checked = false;
         hideRebornCheckbox();
     //expanded first and second job
-    }else if(classValue >= 47 && classValue <= 51){
+    }else if(classValue == 47){
         base = 1;
-        job = 1;
+        job = 50;
         document.getElementById("base").value = "1";
-        document.getElementById("job").value = "1";
+        document.getElementById("job").value = "50";
+
+        min_base_level = 1;
+        max_base_level = 99;
+        max_job_level = 50;
+        document.getElementById("base").min = "1";
+        document.getElementById("base").max = "99";
+        document.getElementById("job").max = "50";
+        stat_points_floor = 48;
+        if(adopted == false){
+            max_stat_points = 99;
+            setStatCeiling(99);
+        }else{
+            max_stat_points = 80;
+            setStatCeiling(80);
+        }
+
+        showAdoptedCheckbox();
+        reborn = false;
+        rebornCheck.checked = false;
+        hideRebornCheckbox();
+    }else if(classValue >= 48 && classValue <= 49){
+        base = 1;
+        job = 70;
+        document.getElementById("base").value = "1";
+        document.getElementById("job").value = "70";
+
+        min_base_level = 1;
+        max_base_level = 99;
+        max_job_level = 70;
+        document.getElementById("base").min = "1";
+        document.getElementById("base").max = "99";
+        document.getElementById("job").max = "70";
+        stat_points_floor = 48;
+        if(adopted == false){
+            max_stat_points = 99;
+            setStatCeiling(99);
+        }else{
+            max_stat_points = 80;
+            setStatCeiling(80);
+        }
+
+        showAdoptedCheckbox();
+        reborn = false;
+        rebornCheck.checked = false;
+        hideRebornCheckbox();
+    }else if(classValue >= 50 && classValue <= 51){
+        base = 1;
+        job = 50;
+        document.getElementById("base").value = "1";
+        document.getElementById("job").value = "50";
 
         min_base_level = 1;
         max_base_level = 99;
@@ -352,9 +410,9 @@ function updateOnClassChange(){
     //expanded third job
     }else if(classValue >= 52 && classValue <= 56){
         base = 99;
-        job = 1;
+        job = 65;
         document.getElementById("base").value = "99";
-        document.getElementById("job").value = "1";
+        document.getElementById("job").value = "65";
 
         min_base_level = 99;
         max_base_level = 185;
@@ -378,9 +436,9 @@ function updateOnClassChange(){
     //super novice
     }else if(classValue == 57){
         base = 1;
-        job = 1;
+        job = 99;
         document.getElementById("base").value = "1";
-        document.getElementById("job").value = "1";
+        document.getElementById("job").value = "99";
 
         min_base_level = 1;
         max_base_level = 99;
@@ -404,9 +462,9 @@ function updateOnClassChange(){
     //expanded super novice
     }else if(classValue == 58){
         base = 99;
-        job = 1;
+        job = 65;
         document.getElementById("base").value = "99";
-        document.getElementById("job").value = "1";
+        document.getElementById("job").value = "65";
 
         min_base_level = 99;
         max_base_level = 185;
