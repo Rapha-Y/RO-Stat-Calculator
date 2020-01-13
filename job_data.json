@@ -217,7 +217,7 @@
     },
     {
         "classValue": "54",
-        "jobBonuses": ["?", "?", "?", "?", "?", "?"]
+        "jobBonuses": [7, 6, 4, 6, 8, 4]
     },
     {
         "classValue": "55",

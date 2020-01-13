@@ -3,7 +3,12 @@
 }
 
 body {
-    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    background-color: darkgray;
+    background-image: url("background.png");
+    background-position: 40% 18%;
+    background-repeat: no-repeat;
+    color: white;
+    font-family: Verdana, Arial, Helvetica, sans-serif;
 }
 
 input[type="number"] {
@@ -15,6 +20,14 @@ select option:disabled {
     color: rgba(0, 0, 0, 0.95);
     font-weight: bold;
     text-align: center;
+}
+
+.content {
+    background-color: gray;
+    left: 5%;
+    position: absolute;
+    top: 35%;
+    width: 675px;
 }
 
 .grid-container {
@@ -30,6 +43,37 @@ select option:disabled {
     padding: 2px;
 }
 
+.header {
+    border-left: 2px solid black;
+    border-right: 2px solid black;
+    border-top: 2px solid black;
+    height: 50px;
+    width: 673px;
+}
+
+.header-item {
+    align-items: top;
+}
+
 .item-text {
     padding-left: 3px;
+}
+
+.logo {
+    float: left;
+    padding-top: 5px;
+    padding-left: 5px;
+}
+
+.notes {
+    float: left;
+    font-size: 12px;
+    padding: 10px;
+}
+
+.title {
+    border-right: 2px solid black;
+    float: left;
+    font-size: 25px;
+    padding: 10px 30px 10px 10px;
 }

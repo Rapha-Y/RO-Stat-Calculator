@@ -6,170 +6,180 @@
         <script type="text/javascript" src="script.js"></script>
     </head>
     <body>
-        <div class="grid-container">
-            <div class="grid-item">
-                Base
+        <div class="content">
+            <div class="header">
+                <div class="header-item logo"><img alt="NovaRO logo" width="150px" src="logo.png"></div>
+                <div class="header-item title">Stat Simulator</div>
+                <div class="header-item notes">
+                    Version 1.0 - Report bugs to Anni#9391<br> 
+                    on Discord, but not suggestions.
+                </div>
             </div>
-            <div class="grid-item">
-                <input id="base" onchange="getInputValues(); calcStatPoints();" min="1" max="99" type="number" value="1">
-            </div>
-            <div class="grid-item">
-                Job
-            </div>
-            <div class="grid-item">
-                <input id="job" onchange="getInputValues();" min="10" max="10" type="number" value="10">
-            </div>
-            <div class="grid-item">
-                Class
-            </div>
-            <div class="grid-item">
-                <select id="class" onchange="getInputValues(); updateOnClassChange(); calcStatPoints(); showCost(); showJobBonuses();" size="1">
-                    <!-- Base Job -->
-                    <option disabled>Base Job</option>
-                    <option value="0">Novice</option>
-                    <!-- First Job -->
-                    <option disabled>First Job</option>
-                    <option value="1">Swordsman</option>
-                    <option value="2">Mage</option>
-                    <option value="3">Archer</option>
-                    <option value="4">Merchant</option>
-                    <option value="5">Thief</option>
-                    <option value="6">Acolyte</option>
-                    <!-- Second Job -->
-                    <option disabled>Second Job</option>
-                    <option value="7">Knight</option>
-                    <option value="8">Wizard</option>
-                    <option value="9">Hunter</option>
-                    <option value="10">Blacksmith</option>
-                    <option value="11">Assassin</option>
-                    <option value="12">Priest</option>
-                    <option value="13">Crusader</option>
-                    <option value="14">Sage</option>
-                    <option value="15">Bard</option>
-                    <option value="16">Dancer</option>
-                    <option value="17">Alchemist</option>
-                    <option value="18">Rogue</option>
-                    <option value="19">Monk</option>
-                    <!-- Second Job (Trans) -->
-                    <option disabled>Second Job (Trans)</option>
-                    <option value="20">Lord Knight</option>
-                    <option value="21">High Wizard</option>
-                    <option value="22">Sniper</option>
-                    <option value="23">Mastersmith</option>
-                    <option value="24">Assassin Cross</option>
-                    <option value="25">High Priest</option>
-                    <option value="26">Paladin</option>
-                    <option value="27">Professor</option>
-                    <option value="28">Minstrel</option>
-                    <option value="29">Gypsy</option>
-                    <option value="30">Creator</option>
-                    <option value="31">Stalker</option>
-                    <option value="32">Champion</option>
-                    <!-- Third Job -->
-                    <option disabled>Third Job</option>
-                    <option value="33">Rune Knight</option>
-                    <option value="34">Warlock</option>
-                    <option value="35">Ranger</option>
-                    <option value="36">Mechanic</option>
-                    <option value="37">Guillotine Cross</option>
-                    <option value="38">Arch Bishop</option>
-                    <option value="39">Royal Guard</option>
-                    <option value="40">Sorcerer</option>
-                    <option value="41">Maestro</option>
-                    <option value="42">Wanderer</option>
-                    <option value="43">Geneticist</option>
-                    <option value="44">Shadow Chaser</option>
-                    <option value="45">Sura</option>
-                    <!-- Expanded Base Job -->
-                    <option disabled>Expanded Base Job</option>
-                    <option value="46">Summoner</option>
-                    <!-- Expanded First Job -->
-                    <option disabled>Expanded First Job</option>
-                    <option value="47">Taekwon Kid</option>
-                    <option value="48">Ninja</option>
-                    <option value="49">Gunslinger</option>
-                    <!-- Expanded Second Job -->
-                    <option disabled>Expanded Second Job</option>
-                    <option value="50">Star Gladiator</option>
-                    <option value="51">Soul Linker</option>
-                    <!-- Expanded Third Job -->
-                    <option disabled>Expanded Third Job</option>
-                    <option value="52">Star Emperor</option>
-                    <option value="53">Soul Reaper</option>
-                    <option value="54">Kagerou</option>
-                    <option value="55">Oborou</option>
-                    <option value="56">Rebel</option>
-                    <!-- Super Novice Branch -->
-                    <option disabled>Super Novice</option>
-                    <option value="57">Super Novice</option>
-                    <option value="58">Expanded Super Novice</option>
-                </select>
-            </div>
-            <div class="grid-item">
-                Str
-            </div>
-            <div class="grid-item">
-                <input id="str" onchange="getInputValues(); calcStatPoints(); showCost();" min="1" max="99" type="number" value="1">
-                <div class="item-text" id="bonus-str"></div class="text">
-                <div class="item-text" id="str-cost"></div>
-            </div>
-            <div class="grid-item">
-                Agi
-            </div>
-            <div class="grid-item">
-                <input id="agi" onchange="getInputValues(); calcStatPoints(); showCost();" min="1" max="99" type="number" value="1">
-                <div class="item-text" id="bonus-agi"></div class="text">
-                <div class="item-text" id="agi-cost"></div>
-            </div>
-            <div class="grid-item">
-                Vit
-            </div>
-            <div class="grid-item">
-                <input id="vit" onchange="getInputValues(); calcStatPoints(); showCost();" min="1" max="99" type="number" value="1">
-                <div class="item-text" id="bonus-vit"></div class="text">
-                <div class="item-text" id="vit-cost"></div>
-            </div>
-            <div class="grid-item">
-                Int
-            </div>
-            <div class="grid-item">
-                <input id="int" onchange="getInputValues(); calcStatPoints(); showCost();" min="1" max="99" type="number" value="1">
-                <div class="item-text" id="bonus-int"></div class="text">
-                <div class="item-text" id="int-cost"></div>
-            </div>
-            <div class="grid-item">
-                Dex
-            </div>
-            <div class="grid-item">
-                <input id="dex" onchange="getInputValues(); calcStatPoints(); showCost();" min="1" max="99" type="number" value="1">
-                <div class="item-text" id="bonus-dex"></div class="text">
-                <div class="item-text" id="dex-cost"></div>
-            </div>
-            <div class="grid-item">
-                Luk
-            </div>
-            <div class="grid-item">
-                <input id="luk" onchange="getInputValues(); calcStatPoints(); showCost();" min="1" max="99" type="number" value="1">
-                <div class="item-text" id="bonus-luk"></div class="text">
-                <div class= "item-text" id="luk-cost"></div>
-            </div>
-            <div class="grid-item">
-                Points left
-            </div>
-            <div class="grid-item" id="stat_points">
-                Stat Points
-            </div>
-            <div class="grid-item">
-                Adopted
-            </div>
-            <div class="grid-item">
-                <input id="adopted" onchange="adoptedCheck(); calcStatPoints();" type="checkbox">
-            </div>
-            <div class="grid-item">
-                Reborn
-            </div>
-            <div class="grid-item">
-                <input id="reborn" onchange="rebornCheck(); calcStatPoints();" type="checkbox">
+            <div class="grid-container">
+                <div class="grid-item">
+                    Base
+                </div>
+                <div class="grid-item">
+                    <input id="base" onchange="getInputValues(); calcStatPoints();" min="1" max="99" type="number" value="1">
+                </div>
+                <div class="grid-item">
+                    Job
+                </div>
+                <div class="grid-item">
+                    <input id="job" onchange="getInputValues();" min="10" max="10" type="number" value="10">
+                </div>
+                <div class="grid-item">
+                    Class
+                </div>
+                <div class="grid-item">
+                    <select id="class" onchange="getInputValues(); updateOnClassChange(); calcStatPoints(); showCost(); showJobBonuses();" size="1">
+                        <!-- Base Job -->
+                        <option disabled>Base Job</option>
+                        <option value="0">Novice</option>
+                        <!-- First Job -->
+                        <option disabled>First Job</option>
+                        <option value="1">Swordsman</option>
+                        <option value="2">Mage</option>
+                        <option value="3">Archer</option>
+                        <option value="4">Merchant</option>
+                        <option value="5">Thief</option>
+                        <option value="6">Acolyte</option>
+                        <!-- Second Job -->
+                        <option disabled>Second Job</option>
+                        <option value="7">Knight</option>
+                        <option value="8">Wizard</option>
+                        <option value="9">Hunter</option>
+                        <option value="10">Blacksmith</option>
+                        <option value="11">Assassin</option>
+                        <option value="12">Priest</option>
+                        <option value="13">Crusader</option>
+                        <option value="14">Sage</option>
+                        <option value="15">Bard</option>
+                        <option value="16">Dancer</option>
+                        <option value="17">Alchemist</option>
+                        <option value="18">Rogue</option>
+                        <option value="19">Monk</option>
+                        <!-- Second Job (Trans) -->
+                        <option disabled>Second Job (Trans)</option>
+                        <option value="20">Lord Knight</option>
+                        <option value="21">High Wizard</option>
+                        <option value="22">Sniper</option>
+                        <option value="23">Mastersmith</option>
+                        <option value="24">Assassin Cross</option>
+                        <option value="25">High Priest</option>
+                        <option value="26">Paladin</option>
+                        <option value="27">Professor</option>
+                        <option value="28">Minstrel</option>
+                        <option value="29">Gypsy</option>
+                        <option value="30">Creator</option>
+                        <option value="31">Stalker</option>
+                        <option value="32">Champion</option>
+                        <!-- Third Job -->
+                        <option disabled>Third Job</option>
+                        <option value="33">Rune Knight</option>
+                        <option value="34">Warlock</option>
+                        <option value="35">Ranger</option>
+                        <option value="36">Mechanic</option>
+                        <option value="37">Guillotine Cross</option>
+                        <option value="38">Arch Bishop</option>
+                        <option value="39">Royal Guard</option>
+                        <option value="40">Sorcerer</option>
+                        <option value="41">Maestro</option>
+                        <option value="42">Wanderer</option>
+                        <option value="43">Geneticist</option>
+                        <option value="44">Shadow Chaser</option>
+                        <option value="45">Sura</option>
+                        <!-- Expanded Base Job -->
+                        <option disabled>Expanded Base Job</option>
+                        <option value="46">Summoner</option>
+                        <!-- Expanded First Job -->
+                        <option disabled>Expanded First Job</option>
+                        <option value="47">Taekwon Kid</option>
+                        <option value="48">Ninja</option>
+                        <option value="49">Gunslinger</option>
+                        <!-- Expanded Second Job -->
+                        <option disabled>Expanded Second Job</option>
+                        <option value="50">Star Gladiator</option>
+                        <option value="51">Soul Linker</option>
+                        <!-- Expanded Third Job -->
+                        <option disabled>Expanded Third Job</option>
+                        <option value="52">Star Emperor</option>
+                        <option value="53">Soul Reaper</option>
+                        <option value="54">Kagerou</option>
+                        <option value="55">Oborou</option>
+                        <option value="56">Rebel</option>
+                        <!-- Super Novice Branch -->
+                        <option disabled>Super Novice</option>
+                        <option value="57">Super Novice</option>
+                        <option value="58">Expanded Super Novice</option>
+                    </select>
+                </div>
+                <div class="grid-item">
+                    Str
+                </div>
+                <div class="grid-item">
+                    <input id="str" onchange="getInputValues(); calcStatPoints(); showCost();" min="1" max="99" type="number" value="1">
+                    <div class="item-text" id="bonus-str"></div class="text">
+                    <div class="item-text" id="str-cost"></div>
+                </div>
+                <div class="grid-item">
+                    Agi
+                </div>
+                <div class="grid-item">
+                    <input id="agi" onchange="getInputValues(); calcStatPoints(); showCost();" min="1" max="99" type="number" value="1">
+                    <div class="item-text" id="bonus-agi"></div class="text">
+                    <div class="item-text" id="agi-cost"></div>
+                </div>
+                <div class="grid-item">
+                    Vit
+                </div>
+                <div class="grid-item">
+                    <input id="vit" onchange="getInputValues(); calcStatPoints(); showCost();" min="1" max="99" type="number" value="1">
+                    <div class="item-text" id="bonus-vit"></div class="text">
+                    <div class="item-text" id="vit-cost"></div>
+                </div>
+                <div class="grid-item">
+                    Int
+                </div>
+                <div class="grid-item">
+                    <input id="int" onchange="getInputValues(); calcStatPoints(); showCost();" min="1" max="99" type="number" value="1">
+                    <div class="item-text" id="bonus-int"></div class="text">
+                    <div class="item-text" id="int-cost"></div>
+                </div>
+                <div class="grid-item">
+                    Dex
+                </div>
+                <div class="grid-item">
+                    <input id="dex" onchange="getInputValues(); calcStatPoints(); showCost();" min="1" max="99" type="number" value="1">
+                    <div class="item-text" id="bonus-dex"></div class="text">
+                    <div class="item-text" id="dex-cost"></div>
+                </div>
+                <div class="grid-item">
+                    Luk
+                </div>
+                <div class="grid-item">
+                    <input id="luk" onchange="getInputValues(); calcStatPoints(); showCost();" min="1" max="99" type="number" value="1">
+                    <div class="item-text" id="bonus-luk"></div class="text">
+                    <div class= "item-text" id="luk-cost"></div>
+                </div>
+                <div class="grid-item">
+                    Points left
+                </div>
+                <div class="grid-item" id="stat_points">
+                    Stat Points
+                </div>
+                <div class="grid-item">
+                    Adopted
+                </div>
+                <div class="grid-item">
+                    <input id="adopted" onchange="adoptedCheck(); calcStatPoints();" type="checkbox">
+                </div>
+                <div class="grid-item">
+                    Reborn
+                </div>
+                <div class="grid-item">
+                    <input id="reborn" onchange="rebornCheck(); calcStatPoints();" type="checkbox">
+                </div>
             </div>
         </div>
         <script>
