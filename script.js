@@ -269,12 +269,8 @@ function calcStatGain(level){
         return 3 + Math.floor((level-1)/5);
     }else if(level <= 150){
         return 23 + Math.floor((level-101)/10);
-    }else if(level <= 175){
-        return 28 + Math.floor((level-151)/7);
-    }else if(level == 176){
-        return 17;
     }else if(level <= 185){
-        return 30 + Math.floor((level-175)/5);
+        return 28 + Math.floor((level-151)/7);
     }
 }
 
