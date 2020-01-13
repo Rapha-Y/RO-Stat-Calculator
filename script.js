@@ -22,6 +22,245 @@ var reborn = false;
 var stat_points_per_level = [];
 var stat_points_cost_per_increase = [];
 
+var jobData = [
+    {
+        "classValue": "0",
+        "jobBonuses": [1, 1, 1, 1, 1, 1]
+    },
+    {
+        "classValue": "1",
+        "jobBonuses": [7, 2, 4, 0, 3, 2]
+    },
+    {
+        "classValue": "2",
+        "jobBonuses": [0, 4, 0, 8, 3, 3]
+    },
+    {
+        "classValue": "3",
+        "jobBonuses": [3, 3, 1, 2, 7, 2]
+    },
+    {
+        "classValue": "4",
+        "jobBonuses": [5, 1, 4, 1, 5, 2]
+    },
+    {
+        "classValue": "5",
+        "jobBonuses": [4, 4, 2, 1, 4, 3]
+    },
+    {
+        "classValue": "6",
+        "jobBonuses": [3, 2, 3, 3, 3, 4]
+    },
+    {
+        "classValue": "7",
+        "jobBonuses": [8, 2, 10, 0, 6, 4]
+    },
+    {
+        "classValue": "8",
+        "jobBonuses": [1, 8, 1, 12, 6, 2]
+    },
+    {
+        "classValue": "9",
+        "jobBonuses": [4, 6, 2, 4, 10, 4]
+    },
+    {
+        "classValue": "10",
+        "jobBonuses": [6, 2, 6, 2, 12, 2]
+    },
+    {
+        "classValue": "11",
+        "jobBonuses": [6, 10, 2, 4, 8, 0]
+    },
+    {
+        "classValue": "12",
+        "jobBonuses": [5, 4, 5, 5, 4, 7]
+    },
+    {
+        "classValue": "13",
+        "jobBonuses": [7, 2, 7, 6, 3, 5]
+    },
+    {
+        "classValue": "14",
+        "jobBonuses": [5, 5, 3, 9, 5, 3]
+    },
+    {
+        "classValue": "15",
+        "jobBonuses": [2, 7, 3, 5, 9, 4]
+    },
+    {
+        "classValue": "16",
+        "jobBonuses": [2, 7, 3, 5, 5, 8]
+    },
+    {
+        "classValue": "17",
+        "jobBonuses": [5, 6, 3, 7, 9, 0]
+    },
+    {
+        "classValue": "18",
+        "jobBonuses": [6, 7, 6, 4, 7, 0]
+    },
+    {
+        "classValue": "19",
+        "jobBonuses": [8, 7, 6, 2, 4, 3]
+    },
+    {
+        "classValue": "20",
+        "jobBonuses": [15, 8, 8, 2, 9, 3]
+    },
+    {
+        "classValue": "21",
+        "jobBonuses": [3, 8, 5, 17, 9, 3]
+    },
+    {
+        "classValue": "22",
+        "jobBonuses": [4, 11, 3, 5, 14, 8]
+    },
+    {
+        "classValue": "23",
+        "jobBonuses": [6, 7, 6, 6, 12, 8]
+    },
+    {
+        "classValue": "24",
+        "jobBonuses": [9, 15, 3, 0, 10, 8]
+    },
+    {
+        "classValue": "25",
+        "jobBonuses": [7, 8, 7, 12, 9, 2]
+    },
+    {
+        "classValue": "26",
+        "jobBonuses": [9, 8, 10, 7, 8, 3]
+    },
+    {
+        "classValue": "27",
+        "jobBonuses": [6, 9, 4, 13, 11, 2]
+    },
+    {
+        "classValue": "28",
+        "jobBonuses": [8, 12, 2, 5, 14, 4]
+    },
+    {
+        "classValue": "29",
+        "jobBonuses": [6, 14, 2, 5, 16, 2]
+    },
+    {
+        "classValue": "30",
+        "jobBonuses": [4, 6, 3, 7, 14, 11]
+    },
+    {
+        "classValue": "31",
+        "jobBonuses": [9, 11, 4, 3, 12, 6]
+    },
+    {
+        "classValue": "32",
+        "jobBonuses": [9, 9, 7, 7, 10, 3]
+    },
+    {
+        "classValue": "33",
+        "jobBonuses": [5, 5, 7, 10, 8, 5]
+    },
+    {
+        "classValue": "34",
+        "jobBonuses": [1, 7, 7, 14, 8, 3]
+    },
+    {
+        "classValue": "35",
+        "jobBonuses": [2, 11, 7, 9, 8, 3]
+    },
+    {
+        "classValue": "36",
+        "jobBonuses": [9, 5, 9, 6, 5, 6]
+    },
+    {
+        "classValue": "37",
+        "jobBonuses": [8, 10, 6, 5, 8, 3]
+    },
+    {
+        "classValue": "38",
+        "jobBonuses": [6, 6, 7, 11, 7, 3]
+    },
+    {
+        "classValue": "39",
+        "jobBonuses": [8, 3, 8, 10, 8, 3]
+    },
+    {
+        "classValue": "40",
+        "jobBonuses": [4, 4, 7, 12, 9, 4]
+    },
+    {
+        "classValue": "41",
+        "jobBonuses": [7, 6, 7, 9, 9, 2]
+    },
+    {
+        "classValue": "42",
+        "jobBonuses": [5, 9, 7, 9, 8, 2]
+    },
+    {
+        "classValue": "43",
+        "jobBonuses": [4, 6, 7, 12, 8, 3]
+    },
+    {
+        "classValue": "44",
+        "jobBonuses": [8, 7, 8, 6, 5, 6]
+    },
+    {
+        "classValue": "45",
+        "jobBonuses": [9, 9, 6, 7, 8, 1]
+    },
+    {
+        "classValue": "46",
+        "jobBonuses": [0, 7, 5, 7, 10, 5]
+    },
+    {
+        "classValue": "47",
+        "jobBonuses": [6, 6, 0, 0, 6, 0]
+    },
+    {
+        "classValue": "48",
+        "jobBonuses": [1, 8, 1, 5, 6, 4]
+    },
+    {
+        "classValue": "49",
+        "jobBonuses": [4, 1, 1, 2, 9, 7]
+    },
+    {
+        "classValue": "50",
+        "jobBonuses": [12, 12, 0, 0, 6, 0]
+    },
+    {
+        "classValue": "51",
+        "jobBonuses": [0, 0, 6, 12, 12, 0]
+    },
+    {
+        "classValue": "52",
+        "jobBonuses": [9, 8, 4, 3, 9, 3]
+    },
+    {
+        "classValue": "53",
+        "jobBonuses": [3, 7, 5, 11, 11, 0]
+    },
+    {
+        "classValue": "54",
+        "jobBonuses": [7, 6, 4, 6, 8, 4]
+    },
+    {
+        "classValue": "55",
+        "jobBonuses": [7, 6, 4, 6, 8, 4]
+    },
+    {
+        "classValue": "56",
+        "jobBonuses": [3, 6, 6, 8, 8, 5]
+    },
+    {
+        "classValue": "57",
+        "jobBonuses": [5, 5, 5, 5, 5, 5]
+    },
+    {
+        "classValue": "58",
+        "jobBonuses": [5, 5, 5, 5, 5, 5]
+    }
+]
+
 //calculate stat gain on level up
 function calcStatGain(level){
     if(level > 0 && level == 1){
@@ -75,20 +314,12 @@ function fillStatPointCostArray(){
 
 //shows the stat bonuses based on class
 function showJobBonuses(){
-    var xhttp = new XMLHttpRequest();
-    xhttp.onreadystatechange = function(){
-        if(this.readyState == 4 && this.status == 200){
-            var response = JSON.parse(xhttp.responseText);
-            document.getElementById("bonus-str").innerHTML = "+" + response[classValue].jobBonuses[0];
-            document.getElementById("bonus-agi").innerHTML = "+" + response[classValue].jobBonuses[1];
-            document.getElementById("bonus-vit").innerHTML = "+" + response[classValue].jobBonuses[2];
-            document.getElementById("bonus-int").innerHTML = "+" + response[classValue].jobBonuses[3];
-            document.getElementById("bonus-dex").innerHTML = "+" + response[classValue].jobBonuses[4];
-            document.getElementById("bonus-luk").innerHTML = "+" + response[classValue].jobBonuses[5];
-        }
-    };
-    xhttp.open("GET", "job_data.json", true);
-    xhttp.send();
+    document.getElementById("bonus-str").innerHTML = "+" + jobData[classValue].jobBonuses[0];
+    document.getElementById("bonus-agi").innerHTML = "+" + jobData[classValue].jobBonuses[1];
+    document.getElementById("bonus-vit").innerHTML = "+" + jobData[classValue].jobBonuses[2];
+    document.getElementById("bonus-int").innerHTML = "+" + jobData[classValue].jobBonuses[3];
+    document.getElementById("bonus-dex").innerHTML = "+" + jobData[classValue].jobBonuses[4];
+    document.getElementById("bonus-luk").innerHTML = "+" + jobData[classValue].jobBonuses[5];
 }
 
 //shows the cost for increasing each stat
