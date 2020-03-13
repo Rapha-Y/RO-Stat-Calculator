@@ -23,10 +23,12 @@ var stat_points_per_level = [];
 var stat_points_cost_per_increase = [];
 
 var jobData = [
+    //base job
     {
         "classValue": "0",
         "jobBonuses": [1, 1, 1, 1, 1, 1]
     },
+    //first job
     {
         "classValue": "1",
         "jobBonuses": [7, 2, 4, 0, 3, 2]
@@ -51,6 +53,7 @@ var jobData = [
         "classValue": "6",
         "jobBonuses": [3, 2, 3, 3, 3, 4]
     },
+    //second job
     {
         "classValue": "7",
         "jobBonuses": [8, 2, 10, 0, 6, 4]
@@ -103,6 +106,7 @@ var jobData = [
         "classValue": "19",
         "jobBonuses": [8, 7, 6, 2, 4, 3]
     },
+    //second job (trans)
     {
         "classValue": "20",
         "jobBonuses": [15, 8, 8, 2, 9, 3]
@@ -155,62 +159,65 @@ var jobData = [
         "classValue": "32",
         "jobBonuses": [9, 9, 7, 7, 10, 3]
     },
+    //third job
     {
         "classValue": "33",
-        "jobBonuses": [5, 5, 7, 10, 8, 5]
+        "jobBonuses": [6, 6, 7, 10, 9, 5]
     },
     {
         "classValue": "34",
-        "jobBonuses": [1, 7, 7, 14, 8, 3]
+        "jobBonuses": [1, 7, 8, 15, 8, 4]
     },
     {
         "classValue": "35",
-        "jobBonuses": [2, 11, 7, 9, 8, 3]
+        "jobBonuses": [2, 12, 8, 9, 8, 4]
     },
     {
         "classValue": "36",
-        "jobBonuses": [9, 5, 9, 6, 5, 6]
+        "jobBonuses": [10, 6, 10, 6, 5, 6]
     },
     {
         "classValue": "37",
-        "jobBonuses": [8, 10, 6, 5, 8, 3]
+        "jobBonuses": [8, 11, 6, 5, 9, 4]
     },
     {
         "classValue": "38",
-        "jobBonuses": [6, 6, 7, 11, 7, 3]
+        "jobBonuses": [6, 7, 7, 12, 7, 4]
     },
     {
         "classValue": "39",
-        "jobBonuses": [8, 3, 8, 10, 8, 3]
+        "jobBonuses": [9, 3, 9, 10, 9, 3]
     },
     {
         "classValue": "40",
-        "jobBonuses": [4, 4, 7, 12, 9, 4]
+        "jobBonuses": [4, 4, 8, 13, 9, 5]
     },
     {
         "classValue": "41",
-        "jobBonuses": [7, 6, 7, 9, 9, 2]
+        "jobBonuses": [7, 7, 7, 9, 10, 3]
     },
     {
         "classValue": "42",
-        "jobBonuses": [5, 9, 7, 9, 8, 2]
+        "jobBonuses": [7, 9, 7, 9, 9, 2]
     },
     {
         "classValue": "43",
-        "jobBonuses": [4, 6, 7, 12, 8, 3]
+        "jobBonuses": [5, 6, 8, 12, 8, 4]
     },
     {
         "classValue": "44",
-        "jobBonuses": [8, 7, 8, 6, 5, 6]
+        "jobBonuses": [8, 9, 8, 6, 6, 6]
     },
     {
         "classValue": "45",
-        "jobBonuses": [9, 9, 6, 7, 8, 1]
+        "jobBonuses": [10, 10, 6, 8, 8, 1]
     },
+    //expanded base job
     {
         "classValue": "46",
-        "jobBonuses": [0, 7, 5, 7, 10, 5]
+        "jobBonuses": [0, 7, 5, 9, 12, 5]
     },
+    //expanded first job
     {
         "classValue": "47",
         "jobBonuses": [6, 6, 0, 0, 6, 0]
@@ -223,6 +230,7 @@ var jobData = [
         "classValue": "49",
         "jobBonuses": [4, 1, 1, 2, 9, 7]
     },
+    //expanded second job
     {
         "classValue": "50",
         "jobBonuses": [12, 12, 0, 0, 6, 0]
@@ -231,33 +239,35 @@ var jobData = [
         "classValue": "51",
         "jobBonuses": [0, 0, 6, 12, 12, 0]
     },
+    //expanded third job
     {
         "classValue": "52",
-        "jobBonuses": [9, 8, 4, 3, 9, 3]
+        "jobBonuses": [12, 10, 6, 3, 9, 3]
     },
     {
         "classValue": "53",
-        "jobBonuses": [3, 7, 5, 11, 11, 0]
+        "jobBonuses": [3, 7, 7, 11, 13, 2]
     },
     {
         "classValue": "54",
-        "jobBonuses": [7, 6, 4, 6, 8, 4]
+        "jobBonuses": [7, 10, 6, 6, 9, 5]
     },
     {
         "classValue": "55",
-        "jobBonuses": [7, 6, 4, 6, 8, 4]
+        "jobBonuses": [7, 10, 6, 6, 8, 6]
     },
     {
         "classValue": "56",
-        "jobBonuses": [3, 6, 6, 8, 8, 5]
+        "jobBonuses": [3, 8, 6, 8, 11, 7]
     },
+    //super novice branch
     {
         "classValue": "57",
         "jobBonuses": [5, 5, 5, 5, 5, 5]
     },
     {
         "classValue": "58",
-        "jobBonuses": [5, 5, 5, 5, 5, 5]
+        "jobBonuses": [7, 7, 6, 6, 6, 5]
     }
 ]
 
@@ -269,7 +279,7 @@ function calcStatGain(level){
         return 3 + Math.floor((level-1)/5);
     }else if(level <= 150){
         return 23 + Math.floor((level-101)/10);
-    }else if(level <= 185){
+    }else if(level <= 200){
         return 28 + Math.floor((level-151)/7);
     }
 }
@@ -280,7 +290,7 @@ function calcStatGain(level){
 */
 function fillStatPointsArray(){
     stat_points_per_level.push(0);
-    for(var i=1;i<185;i++){
+    for(var i=1;i<200;i++){
         stat_points_per_level.push(stat_points_per_level[i-1]+calcStatGain(i+1));
     }
 }
@@ -508,14 +518,14 @@ function updateOnClassChange(){
         base = 99;
         job = 65;
         document.getElementById("base").value = "99";
-        document.getElementById("job").value = "65";
+        document.getElementById("job").value = "70";
 
         min_base_level = 99;
-        max_base_level = 185;
+        max_base_level = 200;
         max_job_level = 65;
         document.getElementById("base").min = "99";
-        document.getElementById("base").max = "185";
-        document.getElementById("job").max = "65";
+        document.getElementById("base").max = "200";
+        document.getElementById("job").max = "70";
         if(reborn == false){
             stat_points_floor = 48;
             if(adopted == false){
@@ -537,14 +547,14 @@ function updateOnClassChange(){
         base = 1;
         job = 55;
         document.getElementById("base").value = "1";
-        document.getElementById("job").value = "55";
+        document.getElementById("job").value = "60";
 
         min_base_level = 1;
-        max_base_level = 185;
+        max_base_level = 200;
         max_job_level = 55;
         document.getElementById("base").min = "1";
-        document.getElementById("base").max = "185";
-        document.getElementById("job").max = "55";
+        document.getElementById("base").max = "200";
+        document.getElementById("job").max = "60";
         stat_points_floor = 48;
         if(adopted == false){
             max_stat_points = 125;
@@ -558,7 +568,7 @@ function updateOnClassChange(){
         reborn = false;
         rebornCheck.checked = false;
         hideRebornCheckbox();
-    //expanded first and second job
+    //taekwon
     }else if(classValue == 47){
         base = 1;
         job = 50;
@@ -584,6 +594,7 @@ function updateOnClassChange(){
         reborn = false;
         rebornCheck.checked = false;
         hideRebornCheckbox();
+    //ninja and gunslinger
     }else if(classValue >= 48 && classValue <= 49){
         base = 1;
         job = 70;
@@ -609,6 +620,7 @@ function updateOnClassChange(){
         reborn = false;
         rebornCheck.checked = false;
         hideRebornCheckbox();
+    //expanded second job
     }else if(classValue >= 50 && classValue <= 51){
         base = 1;
         job = 50;
@@ -639,14 +651,14 @@ function updateOnClassChange(){
         base = 99;
         job = 65;
         document.getElementById("base").value = "99";
-        document.getElementById("job").value = "65";
+        document.getElementById("job").value = "70";
 
         min_base_level = 99;
-        max_base_level = 185;
+        max_base_level = 200;
         max_job_level = 65;
         document.getElementById("base").min = "99";
-        document.getElementById("base").max = "185";
-        document.getElementById("job").max = "65";
+        document.getElementById("base").max = "200";
+        document.getElementById("job").max = "70";
         stat_points_floor = 48;
         if(adopted == false){
             max_stat_points = 125;
@@ -691,14 +703,14 @@ function updateOnClassChange(){
         base = 99;
         job = 65;
         document.getElementById("base").value = "99";
-        document.getElementById("job").value = "65";
+        document.getElementById("job").value = "70";
 
         min_base_level = 99;
-        max_base_level = 185;
+        max_base_level = 200;
         max_job_level = 65;
         document.getElementById("base").min = "99";
-        document.getElementById("base").max = "185";
-        document.getElementById("job").max = "65";
+        document.getElementById("base").max = "200";
+        document.getElementById("job").max = "70";
         stat_points_floor = 48;
         if(adopted == false){
             max_stat_points = 130;
