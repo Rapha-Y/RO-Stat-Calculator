@@ -35,14 +35,14 @@ select option:disabled {
     left: 5%;
     position: absolute;
     top: calc(50% - 100px);
-    width: 675px;
+    width: 705px;
 }
 
 .grid-container {
     border: 1px solid black;
     display: grid;
-    grid-template-columns: 90px 125px 80px 125px 80px 175px;
-    width: 675px;
+    grid-template-columns: 90px 140px 80px 140px 80px 175px;
+    width: 705px;
 }
 
 .grid-item {
@@ -56,7 +56,7 @@ select option:disabled {
     border-right: 2px solid black;
     border-top: 2px solid black;
     height: 50px;
-    width: 673px;
+    width: 703px;
 }
 
 .header-item {
