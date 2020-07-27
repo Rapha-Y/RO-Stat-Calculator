@@ -17,3 +17,7 @@ Known issues:
 
 You're free to use my code, but you should credit me somewhere easily visible.  
 Both the NovaRO logo and the background image do not belong to me, ask its respective owners before using it.
+
+---------------
+
+Personal Comments: There is no intention on rewriting the code, but this project could benefit from the use of React and fragmentation into components. Not by much, considering its size, but it'd facilitate reading and maintenability.
